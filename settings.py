@@ -128,7 +128,7 @@ except ImportError:
 
 TEMPLATE_DEBUG = DEBUG
 if DEV_SERVER and PACKAGE_NAME_GRAPPELLI in INSTALLED_APPS:
-    ADMIN_MEDIA_PREFIX = "http://jupo.webfactional.com/media/admin/"
+    ADMIN_MEDIA_PREFIX = "http://127.0.0.1:8000/media/admin/"
 if DATABASE_ENGINE == "sqlite3":
     DATABASE_NAME = os.path.join(project_path, DATABASE_NAME)
 
