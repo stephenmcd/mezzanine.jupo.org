@@ -24,10 +24,9 @@ class Command(NoArgsCommand):
     def handle_noargs(self, **options):
         options["interactive"] = False
         for model in get_models():
-            model.objects.all().delete()
+            if model._meta.object_name != "Site":
+                model.objects.all().delete()
         call_command("syncdb", **options)
-        Site.objects.create(domain="mezzanine.jupo.org", 
-            name="Mezzanine Demo")
         user = User.objects.create_user("demo", "example@example.com", "demo")
         user.is_staff = True
         for perm in Permission.objects.filter(content_type__name__in=perms):
