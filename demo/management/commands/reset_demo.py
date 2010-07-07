@@ -15,10 +15,9 @@ class Command(NoArgsCommand):
     
     1) Empty all models.
     2) Reload fixutres.
-    3) Set the current site.
-    4) Create the demo user.
-    5) Give the demo user permissions to the Mezzanine apps.
-    6) Import a Tumblr blog.
+    3) Create the demo user.
+    4) Give the demo user permissions to the Mezzanine apps.
+    5) Import a Tumblr blog.
     """
 
     def handle_noargs(self, **options):
