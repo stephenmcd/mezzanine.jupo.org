@@ -124,7 +124,8 @@
         "fields": {
             "value": "x.org"
         }
-    },
+    }
+,
     {
         "pk": 1, 
         "model": "blog.blogpost", 
@@ -137,11 +138,21 @@
             "publish_date": "2010-06-11 07:06:00", 
             "user": 1, 
             "keywords": [
-                "cms", 
-                "django", 
-                "mezzanine", 
-                "php", 
-                "python"
+                [
+                    "cms"
+                ], 
+                [
+                    "django"
+                ], 
+                [
+                    "mezzanine"
+                ], 
+                [
+                    "php"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "mezzanine-just-another-django-cms"
         }
@@ -158,10 +169,18 @@
             "publish_date": "2010-05-29 11:20:00", 
             "user": 1, 
             "keywords": [
-                "curses", 
-                "django", 
-                "gunicorn", 
-                "python"
+                [
+                    "curses"
+                ], 
+                [
+                    "django"
+                ], 
+                [
+                    "gunicorn"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "announcing-gunicorn-console"
         }
@@ -178,8 +197,12 @@
             "publish_date": "2010-05-10 17:41:39", 
             "user": 1, 
             "keywords": [
-                "django", 
-                "python"
+                [
+                    "django"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "optional-django-apps"
         }
@@ -196,8 +219,12 @@
             "publish_date": "2010-03-18 17:49:00", 
             "user": 1, 
             "keywords": [
-                "documentation", 
-                "python"
+                [
+                    "documentation"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "where-is-pep-8-for-technical-documentation"
         }
@@ -214,8 +241,12 @@
             "publish_date": "2010-02-13 18:33:00", 
             "user": 1, 
             "keywords": [
-                "linux", 
-                "x.org"
+                [
+                    "linux"
+                ], 
+                [
+                    "x.org"
+                ]
             ], 
             "slug": "hasta-la-vista-windows"
         }
@@ -232,9 +263,15 @@
             "publish_date": "2010-01-26 12:34:00", 
             "user": 1, 
             "keywords": [
-                "algorithms", 
-                "data structures", 
-                "python"
+                [
+                    "algorithms"
+                ], 
+                [
+                    "data structures"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "linear-traversal-of-adjacency-list-trees"
         }
@@ -251,10 +288,18 @@
             "publish_date": "2009-11-03 11:30:00", 
             "user": 1, 
             "keywords": [
-                "gedit", 
-                "gnome", 
-                "linux", 
-                "python"
+                [
+                    "gedit"
+                ], 
+                [
+                    "gnome"
+                ], 
+                [
+                    "linux"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "ftp-browser-for-gedit"
         }
@@ -271,8 +316,12 @@
             "publish_date": "2009-10-20 16:39:00", 
             "user": 1, 
             "keywords": [
-                "django", 
-                "python"
+                [
+                    "django"
+                ], 
+                [
+                    "python"
+                ]
             ], 
             "slug": "dynamic-django-deployment"
         }
@@ -289,9 +338,15 @@
             "publish_date": "2009-09-26 02:48:00", 
             "user": 1, 
             "keywords": [
-                "nokia", 
-                "python", 
-                "symbian"
+                [
+                    "nokia"
+                ], 
+                [
+                    "python"
+                ], 
+                [
+                    "symbian"
+                ]
             ], 
             "slug": "nokia-e63"
         }
@@ -308,10 +363,18 @@
             "publish_date": "2009-09-21 12:00:00", 
             "user": 1, 
             "keywords": [
-                "chm", 
-                "gnome", 
-                "kde", 
-                "linux"
+                [
+                    "chm"
+                ], 
+                [
+                    "gnome"
+                ], 
+                [
+                    "kde"
+                ], 
+                [
+                    "linux"
+                ]
             ], 
             "slug": "chm-files-on-linux"
         }
