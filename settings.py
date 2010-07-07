@@ -46,6 +46,7 @@ INSTALLED_APPS = (
     "mezzanine.blog",
     "mezzanine.pages",
     "mezzanine.twitter",
+    "demo",
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
