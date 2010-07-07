@@ -13,13 +13,13 @@
             -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
         h1 {font-size:280%; margin-bottom:30px;}
         a {color:#336; font-style:italic;}
-        p, li {font-size:110%; line-height:135%;}
-        p {margin:0 auto 20px auto; width:400px; text-align:left;}
-        li {text-align:right;]
+        p, li {font-size:110%; line-height:135%; text-align:left;}
+        p {margin:0 auto 20px auto; width:400px;}
         ul {margin: 0 auto; list-style-type:none; width:140px;}
         #footer {text-align:center; margin:30px 0 10px 0;}
         #footer img {width:342px; height:37px;}
-        code {font-family:monospace; font-size:130%;}
+        code {font-family:monospace; float:right; font-size:130%;}
+        li span {float:left;}
     </style> 
 </head> 
  
@@ -31,8 +31,8 @@
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
     <p>You can also access the <a href="/admin/">Mezzanine live demo</a> using the following credentials:</p>
     <ul> 
-        <li><em>Username</em>: <code>demo</code></li> 
-        <li><em>Password</em>: <code>demo</code></li> 
+        <li><span><em>Username</em>:</span> <code>demo</code></li> 
+        <li><span><em>Password</em>:</span> <code>demo</code></li> 
     </ul> 
     <div id="footer"> 
         <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" /> 
