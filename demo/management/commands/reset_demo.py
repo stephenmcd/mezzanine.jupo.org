@@ -1,7 +1,10 @@
 
+import os
+from shutil import rmtree
+
 from django.db.models import get_models
+from django.conf import settings
 from django.contrib.auth.models import User, Permission
-from django.contrib.sites.models import Site
 from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
 
@@ -18,6 +21,7 @@ class Command(NoArgsCommand):
     3) Create the demo user.
     4) Give the demo user permissions to the Mezzanine apps.
     5) Import a Tumblr blog.
+    6) Remove uploaded files.
     """
 
     def handle_noargs(self, **options):
@@ -32,4 +36,7 @@ class Command(NoArgsCommand):
             user.user_permissions.add(perm)
             user.save()
         call_command("import_tumblr", "steve-mc", "demo", **options)
+        uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
+        rmtree(uploads)
+        os.mkdir(uploads)
 
