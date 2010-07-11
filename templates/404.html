@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+{% trans "Page not found" %}
+{% endblock %}
+
+{% block main %}
+<p>The page you requested does not exist.</p>
+<p>All demo content on the Mezzanine demo site is removed every few hours, 
+so you may be attempting to view a page that was created by a demo user 
+and has since been removed.</p>
+<p><a href="/">Click here if you'd like to try the demo</a>.
+{% endblock %}
