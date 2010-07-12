@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
     <meta name="description" content="An open source content management platform built using the Django framework." /> 
     <style type="text/css"> 
+
         body {background:#eee; text-align:center;}
         body * {font-family:georgia, garamond, serif; margin:0; padding:0;
             color:#000;}
@@ -20,6 +21,12 @@
         #footer img {width:342px; height:37px;}
         code {font-family:monospace; float:right; font-size:130%;}
         li span {float:left;}
+
+        h2 {margin:40px 0 10px 0; font-size:170%;}
+        #tweets {font-size:80%; width:400px; margin-bottom:20px;}
+        #tweets li {margin-top:20px; padding:10px;}
+        #tweets em {display:block; text-align:right; color:#666; font-size:80%;}
+        
     </style> 
 </head> 
  
@@ -38,6 +45,20 @@
     <div id="footer"> 
         <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" /> 
     </div> 
+    
+    {% load twitter_tags i18n %}
+    {% tweets_for_search "stephen_mcd mezzanine" as tweets %}
+    {% if tweets %}
+    <h2>Recent Updates</h2>
+    <ul id="tweets">
+        {% for tweet in tweets %}
+        <li style="background:#eee;">
+            {{ tweet.text|safe }}
+            <em>{{ tweet.created_at|timesince }} {% trans "ago" %}</em>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
  
 </div> 
 <script type="text/javascript">
