@@ -6,13 +6,14 @@
     <meta name="description" content="An open source content management platform built using the Django framework." /> 
     <style type="text/css"> 
 
-        body {background:#eee; text-align:center;}
+        body {background:#eee url('{{ MEDIA_URL }}img/bg.gif') repeat-x fixed; 
+            text-align:center;}
         body * {font-family:georgia, garamond, serif; margin:0; padding:0;
             color:#000;}
         #main {margin:40px auto; padding:30px; width:500px; background:#fff;
             border-bottom:1px solid #ccc;
             -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
-        h1 {font-size:280%; margin-bottom:30px;}
+        h1 {font-size:350%; margin-bottom:30px;}
         a {color:#336; font-style:italic;}
         p, li {font-size:110%; line-height:135%; text-align:left;}
         p {margin:0 auto 20px auto; width:400px;}
@@ -49,7 +50,7 @@
     {% load twitter_tags i18n %}
     {% tweets_for_search "stephen_mcd mezzanine" as tweets %}
     {% if tweets %}
-    <h2>Recent Updates</h2>
+    <h2>Recent Mentions</h2>
     <ul id="tweets">
         {% for tweet in tweets %}
         <li style="background:#eee;">
