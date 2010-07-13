@@ -48,7 +48,7 @@
     </div> 
     
     {% load twitter_tags i18n %}
-    {% tweets_for_search "stephen_mcd mezzanine" as tweets %}
+    {% tweets_for_search "from:stephen_mcd mezzanine" as tweets %}
     {% if tweets %}
     <h2>Recent Mentions</h2>
     <ul id="tweets">
