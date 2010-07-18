@@ -65,6 +65,7 @@ MIDDLEWARE_CLASSES = (
     "django.middleware.common.CommonMiddleware",
     "django.middleware.cache.FetchFromCacheMiddleware",
     "mezzanine.core.middleware.MobileTemplate",
+    "mezzanine.core.middleware.AdminLoginInterfaceSelector",
     "demo.middleware.BlockPasswordChange",
 )
 
