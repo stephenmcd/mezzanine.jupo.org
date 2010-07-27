@@ -9,9 +9,9 @@ class BlockPasswordChange(object):
         """
         Prevent the demo user from changing their password.
         """
-        if (request.path == reverse("admin:password_change") and    
-            request.user.is_authenticated() and 
-            request.user.username == "demo"):
+        if (request.user.is_authenticated() and 
+            request.user.username == "demo" and 
+            request.path == reverse("admin:password_change")):
             return HttpResponse("<h1>Unavailable</h1>"
                 "<p>This featured is disabled for the demo account.</p>")
         
