@@ -18,9 +18,11 @@
             text-align:center;}
         body * {font-family:georgia, garamond, serif; margin:0; padding:0;
             color:#000;}
-        #main {margin:40px auto; padding:30px; width:500px; background:#fff;
-            border-bottom:1px solid #ccc;
+        #main {margin:40px auto 0 auto; padding:30px; width:500px; 
+            background:#fff; border-bottom:1px solid #ccc;
             -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
+        #badge {margin:20px auto;}
+        #badge img {border:0px; width:210px; height:65px;}
         h1 {font-size:350%; margin-bottom:30px;}
         a {color:#336; font-style:italic;}
         p, li {font-size:110%; line-height:135%; text-align:left;}
@@ -70,6 +72,17 @@
     {% endif %}
  
 </div> 
+<div id="badge">
+    <a href="http://djangoproject.com"><img 
+        src="{{ MEDIA_URL }}img/badge.png" alt="Powered by Django" /></a>
+</div>
+<div>
+    <a href="http://github.com/stephenmcd/mezzanine"><img 
+        style="position: absolute; top: 0; right: 0; border: 0;" 
+        src="{{ MEDIA_URL }}img/forkme_right_gray_6d6d6d.png" 
+        alt="Fork me on GitHub"></a>
+</div>
+
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
