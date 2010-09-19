@@ -15,7 +15,7 @@ class Command(NoArgsCommand):
 
     def handle_noargs(self, **options):
         reset_apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS if 
-            a.startswith("mezzanine.")]
+            a.startswith("mezzanine.") or a.startswith("cartridge.")]
         for model in get_models():
             meta = model._meta
             if meta.app_label in reset_apps and meta.app_label != "twitter":
