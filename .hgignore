@@ -3,4 +3,5 @@ syntax: glob
 *.pyo
 *.db
 local_settings.py
-
+site_media/css
+site_media/js
