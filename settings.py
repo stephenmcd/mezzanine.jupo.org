@@ -42,11 +42,10 @@ ROOT_URLCONF = "%s.urls" % project_dir
 CACHE_MIDDLEWARE_KEY_PREFIX = project_dir
 
 # Apps/
-INSTALLED_APPS.insert(0, "cartridge.shop")
+INSTALLED_APPS = ["cartridge.shop"] + INSTALLED_APPS + ["demo"]
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     "cartridge.shop.context_processors.shop_globals",
-    "demo",
 )
 
 MIDDLEWARE_CLASSES += (

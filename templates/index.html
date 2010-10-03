@@ -23,7 +23,7 @@
             -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
         #badge {margin:20px auto;}
         #badge img {border:0px; width:210px; height:65px;}
-        h1 {font-size:350%; margin-bottom:30px;}
+        h1 {font-size:350%; margin-bottom:20px;}
         a {color:#336; font-style:italic;}
         p, li {font-size:110%; line-height:135%; text-align:left;}
         p {margin:0 auto 20px auto; width:400px;}
@@ -38,13 +38,18 @@
         #tweets li {margin-top:20px; padding:10px;}
         #tweets em {display:block; text-align:right; color:#666; font-size:80%;}
         
+        .download {text-align:center; font-size:95%; 
+            margin:20px 0 30px 0; width:100%;}
+        
     </style> 
 </head> 
  
 <body> 
 <div id="main"> 
  
-    <h1>Mezzanine</h1> 
+    <h1>Mezzanine</h1>
+    <p class="download"><a 
+        href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p> 
     <p>An open source content management platform built using the Django framework.</p>
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
     <p>You can also access the <a href="{% if not request.user.is_staff %}/admin/?interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
