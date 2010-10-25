@@ -7,8 +7,8 @@ MEZZANINE_ADMIN_MENU_ORDER = (
     (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",)),
     (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode", 
         "shop.Sale", "shop.Order")),
-    (_("Site"), ("auth.User", "auth.Group", "sites.Site", 
-        "redirects.Redirect",)),
+    (_("Site"), ("sites.Site", "redirects.Redirect", "settings.Setting")),
+    (_("Users"), ("auth.User", "auth.Group",)),
 )
 
 # Main Django settings.
