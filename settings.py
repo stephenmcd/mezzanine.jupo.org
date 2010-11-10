@@ -3,12 +3,13 @@ from mezzanine.project_template.settings import *
 
 from django.utils.translation import ugettext_lazy as _
 
-MEZZANINE_ADMIN_MENU_ORDER = (
-    (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",)),
+ADMIN_MENU_ORDER = (
+    (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",
+        (_("Media Library"), "fb_browse"),)),
     (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode", 
         "shop.Sale", "shop.Order")),
-    (_("Site"), ("auth.User", "auth.Group", "sites.Site", 
-        "redirects.Redirect",)),
+    (_("Site"), ("sites.Site", "redirects.Redirect", "conf.Setting")),
+    (_("Users"), ("auth.User", "auth.Group",)),
 )
 
 # Main Django settings.
