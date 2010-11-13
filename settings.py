@@ -1,17 +1,6 @@
 
 from mezzanine.project_template.settings import *
 
-from django.utils.translation import ugettext_lazy as _
-
-ADMIN_MENU_ORDER = (
-    (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",
-        (_("Media Library"), "fb_browse"),)),
-    (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode", 
-        "shop.Sale", "shop.Order")),
-    (_("Site"), ("sites.Site", "redirects.Redirect", "conf.Setting")),
-    (_("Users"), ("auth.User", "auth.Group",)),
-)
-
 # Main Django settings.
 DEBUG = False
 DEV_SERVER = False
@@ -24,26 +13,33 @@ USE_I18N = False
 SECRET_KEY = "dgfdsg98sdgg54545B$Wv#$#4#$ZDvdfvbfvv"
 INTERNAL_IPS = ("127.0.0.1",)
 
-# Database.
-DATABASE_ENGINE = ""
-DATABASE_NAME = ""
-DATABASE_USER = ""
-DATABASE_PASSWORD = ""
-DATABASE_HOST = ""
-DATABASE_PORT = ""
+# Databases.
+DATABASES = {
+    "default": {
+        "ENGINE": "",
+        "HOST": "",
+        "NAME": "",
+        "PASSWORD": "",
+        "PORT": "",
+        "USER": "",
+    }
+}
 
 # Paths.
 import os
-project_path = os.path.dirname(os.path.abspath(__file__))
-project_dir = project_path.split(os.sep)[-1]
+_project_path = os.path.dirname(os.path.abspath(__file__))
+_project_dir = _project_path.split(os.sep)[-1]
+ADMIN_MEDIA_PREFIX = "/media/"
+CACHE_MIDDLEWARE_KEY_PREFIX = _project_dir
 MEDIA_URL = "/site_media/"
-MEDIA_ROOT = os.path.join(project_path, MEDIA_URL.strip("/"))
-TEMPLATE_DIRS = (os.path.join(project_path, "templates"),)
-ROOT_URLCONF = "%s.urls" % project_dir
-CACHE_MIDDLEWARE_KEY_PREFIX = project_dir
+MEDIA_ROOT = os.path.join(_project_path, MEDIA_URL.strip("/"))
+ROOT_URLCONF = "%s.urls" % _project_dir
+TEMPLATE_DIRS = (os.path.join(_project_path, "templates"),)
 
 # Apps/
-INSTALLED_APPS = ["cartridge.shop"] + INSTALLED_APPS + ["demo"]
+INSTALLED_APPS += (
+    "cartridge.shop",
+)
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     "cartridge.shop.context_processors.shop_globals",
@@ -54,14 +50,23 @@ MIDDLEWARE_CLASSES += (
     "demo.middleware.BlockPasswordChange",
 )
 
+# Mezzanine settings.
+from django.utils.translation import ugettext_lazy as _
+ADMIN_MENU_ORDER = (
+    (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",
+        (_("Media Library"), "fb_browse"),)),
+    (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode", 
+        "shop.Sale", "shop.Order")),
+    (_("Site"), ("sites.Site", "redirects.Redirect", "conf.Setting")),
+    (_("Users"), ("auth.User", "auth.Group",)),
+)
+
 # Local settings.
 try:
     from local_settings import *
 except ImportError:
     pass
 
-TEMPLATE_DEBUG = DEBUG
-if DEV_SERVER and PACKAGE_NAME_GRAPPELLI in INSTALLED_APPS:
-    ADMIN_MEDIA_PREFIX = "http://127.0.0.1:8000/media/admin/"
-if DATABASE_ENGINE == "sqlite3":
-    DATABASE_NAME = os.path.join(project_path, DATABASE_NAME)
+# Dynamic settings.
+from mezzanine.utils import set_dynamic_settings
+set_dynamic_settings(globals())
