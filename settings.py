@@ -37,9 +37,7 @@ ROOT_URLCONF = "%s.urls" % _project_dir
 TEMPLATE_DIRS = (os.path.join(_project_path, "templates"),)
 
 # Apps/
-INSTALLED_APPS += (
-    "cartridge.shop",
-)
+INSTALLED_APPS = ["cartridge.shop"] + INSTALLED_APPS + ["demo"]
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     "cartridge.shop.context_processors.shop_globals",
