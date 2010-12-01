@@ -1,6 +1,9 @@
 
 from mezzanine.project_template.settings import *
 
+# Cartridge Settings.
+SHOP_SSL_ENABLED = False
+
 # Main Django settings.
 DEBUG = False
 DEV_SERVER = False
