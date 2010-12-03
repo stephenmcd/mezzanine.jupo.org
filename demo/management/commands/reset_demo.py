@@ -21,7 +21,8 @@ class Command(NoArgsCommand):
             if meta.app_label in reset_apps and meta.app_label != "twitter":
                 print "Flushing %s.%s" % (meta.app_label, meta.object_name)
                 model.objects.all().delete()
-        call_command("loaddata", "initial_data", **options)
+        call_command("loaddata", "mezzanine", **options)
+        call_command("loaddata", "cartridge", **options)
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         rmtree(uploads)
         os.mkdir(uploads)
