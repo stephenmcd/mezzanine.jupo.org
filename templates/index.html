@@ -52,7 +52,7 @@
         href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p> 
     <p>An open source content management platform built using the Django framework.</p>
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
-    <p>You can also access the <a href="{% if not request.user.is_staff %}/admin/?interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
+    <p>You can also access the <a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
     <ul> 
         <li><span><em>Username</em>:</span> <code>demo</code></li> 
         <li><span><em>Password</em>:</span> <code>demo</code></li> 
