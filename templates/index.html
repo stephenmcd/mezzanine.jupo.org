@@ -28,6 +28,7 @@
         p, li {font-size:110%; line-height:135%; text-align:left;}
         p {margin:0 auto 20px auto; width:400px;}
         ul {margin: 0 auto; list-style-type:none; width:140px;}
+        #demo-links {margin-top:20px;}
         #footer {text-align:center; margin:30px 0 10px 0;}
         #footer img {width:342px; height:37px;}
         code {font-family:monospace; float:right; font-size:130%;}
@@ -52,12 +53,19 @@
         href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p> 
     <p>An open source content management platform built using the Django framework.</p>
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
-    <p>You can also access the <a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
+    <p>You can access the <a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
     <ul> 
         <li><span><em>Username</em>:</span> <code>demo</code></li> 
         <li><span><em>Password</em>:</span> <code>demo</code></li> 
-    </ul> 
+    </ul>
     <br clear="all" />
+    <p id="demo-links">
+        Or go directly to the 
+        <a href="{% url set_device "default" %}?next=/blog/">full version</a>
+         or 
+        <a href="{% url set_device "mobile" %}?next=/blog/">mobile version</a>
+        of the demo site.
+    </p>
     <div id="footer"> 
         <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" /> 
     </div> 
