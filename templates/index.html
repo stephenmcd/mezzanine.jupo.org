@@ -40,8 +40,36 @@
         
         .download {text-align:center; font-size:95%; 
             margin:20px 0 30px 0; width:100%;}
+            
+        blockquote ul {width:90%; font-size:80%; height:80px;}
+        blockquote li {text-align:center; display:none;}
+        blockquote .first {display:block;}
         
     </style> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+    <script>
+        $(function() {
+            setInterval(function() {
+                var current, next;
+                $.each($('blockquote li'), function(i, quote) {
+                    quote = $(quote);
+                    if (!current && quote.is(':visible')) {
+                        current = quote;
+                    } else if (current && !next) {
+                        next = quote;
+                    }
+                });
+                if (!next) {
+                    next = $('blockquote li:first');
+                }
+                if (current) {
+                    current.fadeOut(function() {
+                        next.fadeIn();
+                    });
+                }
+            }, 4000);
+        });
+    </script>
 </head> 
  
 <body> 
@@ -50,6 +78,7 @@
     <h1>Mezzanine</h1>
     <p class="download"><a 
         href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p> 
+    {{ quotes|safe }}
     <p>An open source content management platform built using the Django framework.</p>
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
     <p>You can also access the <a href="{% if not request.user.is_staff %}/admin/?interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
