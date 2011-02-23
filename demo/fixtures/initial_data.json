@@ -204,7 +204,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Web development technology has come an incredibly long way over the last decade. Unfortunately in local markets like Australia where I reside, the tech sector seems to languish years behind the United States and Europe. We saw this happen with broadband adoption at the turn of the century where most Australians were still on dial-up for years after the rest of the world enjoyed widely available cable and ADSL.</p>", 
             "_keywords": "django open source php asp.net australia java security", 
             "title": "On Modern Web Development", 
@@ -230,7 +229,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>I&#8217;m happy to announce the first release of <a href=\"http://cartridge.jupo.org/\">Cartridge</a> - a <a href=\"http://djangoproject.com/\">Django</a> shopping cart application I started working on back in 2009. The development path that Cartridge has taken has been a strange one. I stopped working on it throughout 2010 in order to get the ball rolling with a project called <a href=\"http://mezzanine.jupo.org/\">Mezzanine</a> that I&#8217;ve <a href=\"http://blog.jupo.org/post/684732364/mezzanine-just-another-django-cms\">blogged about previously</a>. Many parts of Mezzanine actually originated in Cartridge and once development of Mezzanine was well under way it made the most sense for continued development of Cartridge to occur as a plug-in for Mezzanine which has now come to fruition.</p>", 
             "_keywords": "python django mezzanine cartridge ecommerce", 
             "title": "Plugging In Cartridge", 
@@ -254,7 +252,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>You&#8217;d be forgiven for reading the title of this post and thinking it&#8217;s about a crazy approach to project briefing that somehow mimics open source development - as interesting as that sounds, it isn&#8217;t the case and my motives are much more simplistic and sinister. What I&#8217;d like to do here is put a brief together for an open source project called <a href=\"http://mezzanine.jupo.org\">Mezzanine</a>. This brief isn&#8217;t specifically geared towards programmers so if you think this isn&#8217;t for you then please continue reading and let me prove you wrong.</p>", 
             "_keywords": "python django open source mezzanine", 
             "title": "An Open Source Brief", 
@@ -277,7 +274,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Ask any developer that has put together a <a href=\"http://docs.djangoproject.com/en/dev/intro/tutorial02/\">Django admin interface</a> and they&#8217;ll tell you that it&#8217;s an amazing piece of technology that allows you to whip up an admin system for your web application in a number of minutes rather than days. Unfortunately this power can be a double-edged sword as without enough time and thought up front, a developer can easily end up creating an interface that&#8217;s almost impossible for its intended audience to work with.</p>", 
             "_keywords": "python django mezzanine php cms", 
             "title": "Mezzanine: Just Another Django CMS?", 
@@ -301,7 +297,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Like a lot of Django shops our software stack consists of two layers up front: a public facing web/proxy server and an application server sitting behind it. For a long time we&#8217;ve enjoyed success using <a href=\"http://nginx.org/en/\">nginx</a> and <a href=\"http://httpd.apache.org/\">Apache</a> to fill these roles respectively, but as an application server the 800 pound gorilla that is Apache can really be overkill, which over time we&#8217;ve found can have quite a cost around lack of granular control. So we recently decided to try out the up and coming <a href=\"http://gunicorn.org/\">gunicorn</a> which is currently gaining in popularity throughout the Django community and so far it&#8217;s been very smooth.</p>", 
             "_keywords": "python django gunicorn curses", 
             "title": "Announcing gunicorn-console", 
@@ -324,7 +319,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>A project of mine contains a number of third-party apps that are development related and potentially not available on every machine the project will run on. My general approach to dealing with these was to try and import the app in my <code>settings</code> module and if successful, add it to the <code>INSTALLED_APPS</code> setting. However as the number of these apps grew it became a wart within the settings module so I put together this snippet for managing them.</p>", 
             "_keywords": "python django", 
             "title": "Optional Django Apps", 
@@ -345,7 +339,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Anyone who has programmed in Python for a considerable length of time will at least have some passing familiarity with <a href=\"http://www.python.org/dev/peps/pep-0008/\">PEP 8</a> - the document that goes into an incredible level of detail in dictating precisely how code should be written. While its primary goal is to ensure that Python code is written in a consistant fashion throughout the community, therefore making it as easy as possible to read, it also provides one of many aspects that makes programming in Python an incredibly efficient process - it negates the need for a lot of decision making around any of the choices one might come across that are already covered in PEP 8.</p>", 
             "_keywords": "python documentation", 
             "title": "Where is PEP 8 for Technical Documentation?", 
@@ -366,7 +359,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Earlier this week I had the pleasure of removing my final Windows install after wiping my machine at work and installing Ubuntu on it. It was during the late 90s that I first tried out Linux after getting my hands on a Redhat 6.1 CD from the cover of a magazine I&#8217;d bought. I didn&#8217;t keep it installed for very long and after a few more tries over the years with Mandrake (now Mandrivia) and Damn Small Linux, it wasn&#8217;t until 2005 when I installed Slackware 10.2 as my primary operating system at home and really cut my teeth on it in order to test how cross-platform my Python projects were. It was a great experience learning about all the various sub-systems, compiling software and libraries from source, embracing the command line and modifying some of the internal scripts to get things working the way I wanted.</p>", 
             "_keywords": "linux x.org", 
             "title": "Hasta la Vista, Windows", 
@@ -387,7 +379,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>My current project has the common requirement of storing and rendering a hierarchical tree of categories. This project is geared towards potentially junior developers with the expectation of it being hacked at every time it&#8217;s used - a set of scaffolding where simplicity isn&#8217;t just a loose goal but a fundamental requirement.</p>", 
             "_keywords": "python algorithms data structures", 
             "title": "Linear Traversal of Adjacency List Trees", 
@@ -409,7 +400,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Many major Linux distributions such as Ubuntu ship with <a href=\"http://projects.gnome.org/gedit/\">gedit</a> as the default text editor. It has all the standard features you&#8217;d expect in an editor such as syntax highlighting, a tabbed interface and the ability to integrate external tools. Most importantly it&#8217;s highly extensible with the ability to <a href=\"http://live.gnome.org/Gedit/Plugins\">create plug-ins</a> for it written in Python or C.</p>", 
             "_keywords": "python linux gedit gnome", 
             "title": "FTP Browser for gedit", 
@@ -432,7 +422,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>Lately I&#8217;ve noticed people posting various different takes on making the default Django settings a lot more dynamic. The development and deployment requirements for the projects I work on tend to be far from straight-forward and over time I&#8217;ve come up with my own approach to Django settings, so here it is.</p>", 
             "_keywords": "python django", 
             "title": "Dynamic Django Deployment", 
@@ -453,7 +442,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>After living the last few years without a mobile phone it finally became a problem for me so recently I decided to get a new one. I only needed something simple for receiving calls, not making them so any kind of plan or contract was out of the question since I could spend a few bucks on pre-paid and theoretically not pay anything after that. I didn&#8217;t consider any of the latest smart-phones either like the HTC or iPhone (I wouldn&#8217;t buy a crippled device anyway) since they&#8217;re so ridiculously priced compared to lower end models that aren&#8217;t even a year old.</p>", 
             "_keywords": "python nokia symbian", 
             "title": "Nokia E63", 
@@ -475,7 +463,6 @@
         "model": "blog.blogpost", 
         "fields": {
             "status": 2, 
-            "category": null, 
             "description": "<p>I think CHM files are great and my main Python reference is the CHM version of the main documentation. I\u2019ve used <a href=\"http://gnochm.sourceforge.net/\">GnoCHM</a> which is the default CHM viewer for Gnome for quite a while and it\u2019s really poor - slow as hell on startup and segfaults half the time you click a link. I finally gave up and looked for an alternative which I found in <a href=\"http://www.kchmviewer.net/\">KchmViewer</a> which appears to be the default CHM viewer for KDE. As usual the KDE counterpart of a given Gnome app is much easier on the eyes and in this case the problems I had are solved - lightning fast and stable.</p>", 
             "_keywords": "linux gnome chm kde", 
             "title": "CHM Files on Linux", 
