@@ -1,5 +1,5 @@
 
-from mezzanine.project_template.settings import *
+from cartridge.project_template.settings import *
 
 # Cartridge Settings.
 SHOP_SSL_ENABLED = False
