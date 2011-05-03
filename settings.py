@@ -40,7 +40,10 @@ ROOT_URLCONF = "%s.urls" % _project_dir
 TEMPLATE_DIRS = (os.path.join(_project_path, "templates"),)
 
 # Apps/
-INSTALLED_APPS = ("cartridge.shop",) + INSTALLED_APPS + ("demo",)
+INSTALLED_APPS = list(INSTALLED_APPS)
+INSTALLED_APPS.remove("django.contrib.sites")
+INSTALLED_APPS = tuple(INSTALLED_APPS)
+INSTALLED_APPS = ("django.contrib.sites", "cartridge.shop") + INSTALLED_APPS
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     "cartridge.shop.context_processors.shop_globals",
@@ -54,9 +57,9 @@ MIDDLEWARE_CLASSES += (
 # Mezzanine settings.
 from django.utils.translation import ugettext_lazy as _
 ADMIN_MENU_ORDER = (
-    (_("Content"), ("pages.Page", "blog.BlogPost", "blog.Comment",
+    (_("Content"), ("pages.Page", "blog.BlogPost", "generic.ThreadedComment",
         (_("Media Library"), "fb_browse"),)),
-    (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode", 
+    (_("Shop"), ("shop.Product", "shop.ProductOption", "shop.DiscountCode",
         "shop.Sale", "shop.Order")),
     (_("Site"), ("sites.Site", "redirects.Redirect", "conf.Setting")),
     (_("Users"), ("auth.User", "auth.Group",)),
