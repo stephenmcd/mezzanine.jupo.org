@@ -1,4 +1,10 @@
 
+import sys, os
+
+import os, sys;
+sys.path.insert(0, os.path.join("..", "mezzanine"))
+sys.path.insert(0, os.path.join("..", "cartridge"))
+
 from cartridge.project_template.settings import *
 
 # Cartridge Settings.
