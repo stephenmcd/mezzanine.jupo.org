@@ -1,24 +1,24 @@
-<html> 
+<html>
 <!--
-                                                 .__                 
-  _____    ____  _____________________     ____  |__|  ____    ____  
- /     \ _/ __ \ \___   /\___   /\__  \   /    \ |  | /    \ _/ __ \ 
-|  Y Y  \\  ___/  /    /  /    /  / __ \_|   |  \|  ||   |  \\  ___/ 
+                                                 .__
+  _____    ____  _____________________     ____  |__|  ____    ____
+ /     \ _/ __ \ \___   /\___   /\__  \   /    \ |  | /    \ _/ __ \
+|  Y Y  \\  ___/  /    /  /    /  / __ \_|   |  \|  ||   |  \\  ___/
 |__|_|  / \___  >/_____ \/_____ \(____  /|___|  /|__||___|  / \___  >
-      \/      \/       \/      \/     \/      \/          \/      \/ 
+      \/      \/       \/      \/     \/      \/          \/      \/
 
 -->
-<head> 
-    <title>Mezzanine - Django CMS</title> 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-    <meta name="description" content="An open source content management platform built using the Django framework." /> 
-    <style type="text/css"> 
+<head>
+    <title>Mezzanine - Django CMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="An open source content management platform built using the Django framework." />
+    <style type="text/css">
 
-        body {background:#eee url('{{ MEDIA_URL }}img/bg.gif') repeat-x fixed; 
+        body {background:#eee url('{{ MEDIA_URL }}img/bg.gif') repeat-x fixed;
             text-align:center;}
         body * {font-family:georgia, garamond, serif; margin:0; padding:0;
             color:#000;}
-        #main {margin:40px auto 0 auto; padding:30px; width:500px; 
+        #main {margin:40px auto 0 auto; padding:30px; width:500px;
             background:#fff; border-bottom:1px solid #ccc;
             -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
         #badge {margin:20px auto;}
@@ -38,15 +38,17 @@
         #tweets {font-size:80%; width:450px; margin-top:20px;}
         #tweets li {margin-top:20px; padding:10px;}
         #tweets em {display:block; text-align:right; color:#666; font-size:80%;}
-        
-        .download {text-align:center; font-size:95%; 
+
+        .download {text-align:center; font-size:95%;
             margin:20px 0 30px 0; width:100%;}
-            
+
         blockquote ul {width:90%; font-size:80%; height:80px;}
         blockquote li {text-align:center; display:none;}
         blockquote .first {display:block;}
-        
-    </style> 
+
+        #donate {margin-bottom:20px;}
+
+    </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
     <script>
         $(function() {
@@ -71,34 +73,42 @@
             }, 4000);
         });
     </script>
-</head> 
- 
-<body> 
-<div id="main"> 
- 
+</head>
+
+<body>
+<div id="main">
+
     <h1>Mezzanine</h1>
-    <p class="download"><a 
-        href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p> 
+    <p class="download"><a
+        href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p>
     {{ quotes|safe }}
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----">
+<input type="image" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_AU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online.">
+<img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_AU/i/scr/pixel.gif" width="1" height="1">
+</form>
+
     <p>An open source content management platform built using the Django framework.</p>
     <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
     <p>You can access the <a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
-    <ul> 
-        <li><span><em>Username</em>:</span> <code>demo</code></li> 
-        <li><span><em>Password</em>:</span> <code>demo</code></li> 
+    <ul>
+        <li><span><em>Username</em>:</span> <code>demo</code></li>
+        <li><span><em>Password</em>:</span> <code>demo</code></li>
     </ul>
     <br clear="all" />
     <p id="demo-links">
-        Or go directly to the 
+        Or go directly to the
         <a href="{% url set_device "default" %}?next=/blog/">full version</a>
-         or 
+         or
         <a href="{% url set_device "mobile" %}?next=/blog/">mobile version</a>
         of the demo site.
     </p>
-    <div id="footer"> 
-        <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" /> 
-    </div> 
-    
+    <div id="footer">
+        <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" />
+    </div>
+
     {% load twitter_tags i18n %}
     {% tweets_for_search "from:stephen_mcd mezzanine" as tweets %}
     {% if tweets %}
@@ -112,16 +122,16 @@
         {% endfor %}
     </ul>
     {% endif %}
- 
-</div> 
+
+</div>
 <div id="badge">
-    <a href="http://djangoproject.com"><img 
+    <a href="http://djangoproject.com"><img
         src="{{ MEDIA_URL }}img/badge.png" alt="Powered by Django" /></a>
 </div>
 <div>
-    <a href="http://github.com/stephenmcd/mezzanine"><img 
-        style="position: absolute; top: 0; right: 0; border: 0;" 
-        src="{{ MEDIA_URL }}img/forkme_right_gray_6d6d6d.png" 
+    <a href="http://github.com/stephenmcd/mezzanine"><img
+        style="position: absolute; top: 0; right: 0; border: 0;"
+        src="{{ MEDIA_URL }}img/forkme_right_gray_6d6d6d.png"
         alt="Fork me on GitHub"></a>
 </div>
 
@@ -138,6 +148,6 @@
   })();
 
 </script>
-</body> 
- 
-</html> 
+</body>
+
+</html>
