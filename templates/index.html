@@ -1,87 +1,36 @@
-<html>
-<!--
-                                                 .__
-  _____    ____  _____________________     ____  |__|  ____    ____
- /     \ _/ __ \ \___   /\___   /\__  \   /    \ |  | /    \ _/ __ \
-|  Y Y  \\  ___/  /    /  /    /  / __ \_|   |  \|  ||   |  \\  ___/
-|__|_|  / \___  >/_____ \/_____ \(____  /|___|  /|__||___|  / \___  >
-      \/      \/       \/      \/     \/      \/          \/      \/
+{% extends "mezz_base.html" %}
 
--->
-<head>
-    <title>Mezzanine - Django CMS</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="An open source content management platform built using the Django framework." />
-    <style type="text/css">
-
-        body {background:#eee url('{{ MEDIA_URL }}img/bg.gif') repeat-x fixed;
-            text-align:center;}
-        body * {font-family:georgia, garamond, serif; margin:0; padding:0;
-            color:#000;}
-        #main {margin:40px auto 0 auto; padding:30px; width:500px;
-            background:#fff; border-bottom:1px solid #ccc;
-            -moz-box-shadow: 0 0 50px #999; -webkit-box-shadow: 0 0 50px #999;}
-        #badge {margin:20px auto;}
-        #badge img {border:0px; width:210px; height:65px;}
-        h1 {font-size:350%; margin-bottom:20px;}
-        a {color:#336; font-style:italic;}
-        p, li {font-size:110%; line-height:135%; text-align:left;}
-        p {margin:0 auto 20px auto; width:400px;}
-        ul {margin: 0 auto; list-style-type:none; width:140px;}
-        #demo-links {margin-top:20px;}
-        #footer {text-align:center; margin:30px 0 10px 0;}
-        #footer img {width:342px; height:37px;}
-        code {font-family:monospace; float:right; font-size:130%;}
-        li span {float:left;}
-
-        h2 {margin:40px 0 25px 0; font-size:170%;}
-        #tweets {font-size:80%; width:450px; margin-top:20px;}
-        #tweets li {margin-top:20px; padding:10px;}
-        #tweets em {display:block; text-align:right; color:#666; font-size:80%;}
-
-        .download {text-align:center; font-size:95%;
-            margin:20px 0 30px 0; width:100%;}
-
-        blockquote ul {width:90%; font-size:80%; height:80px;}
-        blockquote li {text-align:center; display:none;}
-        blockquote .first {display:block;}
-
-        #donate {margin-bottom:20px;}
-
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-    <script>
-        $(function() {
-            setInterval(function() {
-                var current, next;
-                $.each($('blockquote li'), function(i, quote) {
-                    quote = $(quote);
-                    if (!current && quote.is(':visible')) {
-                        current = quote;
-                    } else if (current && !next) {
-                        next = quote;
-                    }
+{% block extra_js %}
+<script>
+    $(function() {
+        setInterval(function() {
+            var current, next;
+            $.each($('blockquote li'), function(i, quote) {
+                quote = $(quote);
+                if (!current && quote.is(':visible')) {
+                    current = quote;
+                } else if (current && !next) {
+                    next = quote;
+                }
+            });
+            if (!next) {
+                next = $('blockquote li:first');
+            }
+            if (current) {
+                current.fadeOut(function() {
+                    next.fadeIn();
                 });
-                if (!next) {
-                    next = $('blockquote li:first');
-                }
-                if (current) {
-                    current.fadeOut(function() {
-                        next.fadeIn();
-                    });
-                }
-            }, 4000);
-        });
-    </script>
-</head>
+            }
+        }, 4000);
+    });
+</script>
+{% endblock %}
 
-<body>
-<div id="main">
+{% block main %}
 
-    <h1>Mezzanine</h1>
-    <p class="download"><a
-        href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p>
-    {{ quotes|safe }}
+<p class="download"><a
+    href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p>
+{{ quotes|safe }}
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate">
 <input type="hidden" name="cmd" value="_s-xclick">
@@ -90,64 +39,42 @@
 <img alt="" border="0" src="https://www.paypalobjects.com/WEBSCR-640-20110429-1/en_AU/i/scr/pixel.gif" width="1" height="1">
 </form>
 
-    <p>An open source content management platform built using the Django framework.</p>
-    <p>Check out the <a href="/docs/">Mezzanine documentation</a> for more information.</p>
-    <p>You can access the <a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a> using the following credentials:</p>
-    <ul>
-        <li><span><em>Username</em>:</span> <code>demo</code></li>
-        <li><span><em>Password</em>:</span> <code>demo</code></li>
-    </ul>
-    <br clear="all" />
-    <p id="demo-links">
-        Or go directly to the
-        <a href="{% url set_device "default" %}?next=/blog/">full version</a>
-         or
-        <a href="{% url set_device "mobile" %}?next=/blog/">mobile version</a>
-        of the demo site.
-    </p>
-    <div id="footer">
-        <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" />
-    </div>
+<p>An open source content management platform built using the Django framework.</p>
+<ul id="links">
+    <li><a href="/docs/">Mezzanine documentation</a></li>
+    <li><a href="/sites/">Gallery of sites powered by Mezzanine</a></li>
+    <li><a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Mezzanine live demo</a></li>
+</ul>
 
-    {% load twitter_tags i18n %}
-    {% tweets_for_search "from:stephen_mcd mezzanine" as tweets %}
-    {% if tweets %}
-    <h2>Recent Mentions</h2>
-    <ul id="tweets">
-        {% for tweet in tweets %}
-        <li style="background:#eee;">
-            {{ tweet.text|safe }}
-            <em>{{ tweet.created_at|timesince }} {% trans "ago" %}</em>
-        </li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-
-</div>
-<div id="badge">
-    <a href="http://djangoproject.com"><img
-        src="{{ MEDIA_URL }}img/badge.png" alt="Powered by Django" /></a>
-</div>
-<div>
-    <a href="http://github.com/stephenmcd/mezzanine"><img
-        style="position: absolute; top: 0; right: 0; border: 0;"
-        src="{{ MEDIA_URL }}img/forkme_right_gray_6d6d6d.png"
-        alt="Fork me on GitHub"></a>
+<p>Log in to the demo using the following credentials:</p>
+<ul id="credentials">
+    <li><span><em>Username</em>:</span> <code>demo</code></li>
+    <li><span><em>Password</em>:</span> <code>demo</code></li>
+</ul>
+<br clear="all" />
+<p id="demo-links">
+    Or go directly to the
+    <a href="{% url set_device "default" %}?next=/blog/">full version</a>
+     or
+    <a href="{% url set_device "mobile" %}?next=/blog/">mobile version</a>
+    of the demo site.
+</p>
+<div id="footer">
+    <img src="{{ MEDIA_URL }}img/footer.png" alt="Stupid frilly footer" />
 </div>
 
-<script type="text/javascript">
+{% load twitter_tags i18n %}
+{% tweets_for_search "from:stephen_mcd mezzanine" as tweets %}
+{% if tweets %}
+<h2>Recent Mentions</h2>
+<ul id="tweets">
+    {% for tweet in tweets %}
+    <li style="background:#eee;">
+        {{ tweet.text|safe }}
+        <em>{{ tweet.created_at|timesince }} {% trans "ago" %}</em>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-52596-12']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-</body>
-
-</html>
+{% endblock %}
