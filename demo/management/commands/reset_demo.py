@@ -14,7 +14,7 @@ class Command(NoArgsCommand):
     """
 
     def handle_noargs(self, **options):
-        reset_apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS if 
+        reset_apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS if
             a.startswith("mezzanine.") or a.startswith("cartridge.")]
         for model in get_models():
             meta = model._meta
@@ -24,6 +24,7 @@ class Command(NoArgsCommand):
         call_command("loaddata", "mezzanine", **options)
         call_command("loaddata", "cartridge", **options)
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
-        rmtree(uploads)
+        if os.path.exists(uploads):
+            rmtree(uploads)
         os.mkdir(uploads)
 
