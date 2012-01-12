@@ -49,7 +49,8 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 INSTALLED_APPS = list(INSTALLED_APPS)
 INSTALLED_APPS.remove("django.contrib.sites")
 INSTALLED_APPS = tuple(INSTALLED_APPS)
-INSTALLED_APPS = ("django.contrib.sites", "cartridge.shop") + INSTALLED_APPS
+INSTALLED_APPS = ("demo", "mezzanine.mobile", "django.contrib.sites",
+                  "cartridge.shop") + INSTALLED_APPS
 
 TEMPLATE_CONTEXT_PROCESSORS += (
     "cartridge.shop.context_processors.shop_globals",
