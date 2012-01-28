@@ -14,7 +14,7 @@
     <meta name="description" content="An open source content management platform built using the Django framework." />
     <style type="text/css">
 
-        body {background:#eee url('{{ MEDIA_URL }}img/bg.gif') repeat-x fixed;
+        body {background:#eee url('{{ STATIC_URL }}img/bg.gif') repeat-x fixed;
             text-align:center;}
         body * {font-family:georgia, garamond, serif; margin:0; padding:0;
             color:#000;}
@@ -64,12 +64,12 @@
 </div>
 <div id="badge">
     <a href="http://djangoproject.com"><img
-        src="{{ MEDIA_URL }}img/badge.png" alt="Powered by Django" /></a>
+        src="{{ STATIC_URL }}img/badge.png" alt="Powered by Django" /></a>
 </div>
 <div>
     <a href="http://github.com/stephenmcd/mezzanine"><img
         style="position: absolute; top: 0; right: 0; border: 0;"
-        src="{{ MEDIA_URL }}img/forkme_right_gray_6d6d6d.png"
+        src="{{ STATIC_URL }}img/forkme_right_gray_6d6d6d.png"
         alt="Fork me on GitHub"></a>
 </div>
 
