@@ -8,7 +8,7 @@
             "description": "The two front-runners in source code management these days are undoubtedly Git and Mercurial. Distributed version control has clearly proven itself as the superior model over older centralised systems like SVN, particularly in the context of open source development, where the ability to fork repositories and push and pull branches between them facilitates a much more efficient and streamlined work-flow.",
             "title": "Announcing hg-github",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "version control mercurial git github bitbucket open source",
@@ -31,7 +31,7 @@
             "description": "As a creator and maintainer of several popular reusable Django applications, one of the most commonly requested features I&rsquo;m asked for is the ability to customise the fields that a model implements. This topic comes up often on the Mezzanine mailing list, and during this particular thread we researched ways that fields could be dynamically injected into models at run-time.",
             "title": "Django Model Field Injection",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django mezzanine python orm",
@@ -54,7 +54,7 @@
             "description": "I recently gave a presentational talk to the development team at my work, on what it&rsquo;s like contributing to open source. For those who are yet to get involved, a common perception is that the open source community seems like one big socialist hippie commune, whose motivations are entirely altruistic with little reward for the individual. The approach I took was to dispel this myth and show that for many who participate, their motivations are mostly self serving, with many personal gains to be made. Despite some of the awkward truths I focused on, the talk was received really well.",
             "title": "Open Source for You",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "open source",
@@ -77,7 +77,7 @@
             "description": "I recently took part in Django Dash, the annual\nhackathon where teams of up to three compete to build the best\nDjango project they can within 48 hours. This year\nI worked with Travis White and Josh de\nBlank to build DrawnBy -\na collaborative drawing application that allows people to sketch together in\nreal-time.",
             "title": "Real-time Web Apps with Django and WebSockets",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django websockets socket.io",
@@ -100,7 +100,7 @@
             "description": "I recently started a new role at a Ruby on Rails shop, which as a long time Django specialist was a really interesting opportunity. There&rsquo;s a lot of competition between the two frameworks&rsquo; communities, ranging from friendly rivalry and respectful admiration at the mature end of the scale, to all out fanboy fuelled flame-wars at the other.",
             "title": "Rails Quick Start for Djangonauts",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python ruby rails django",
@@ -123,7 +123,7 @@
             "description": "The question of scalability with regard to\nMezzanine and\nDjango recently came on up on the\nmezzanine-users mailing list, to which I offered the following reply.",
             "title": "Does Mezzanine Scale?",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "mezzanine cartridge django scalability",
@@ -146,7 +146,7 @@
             "description": "Mezzanine and Cartridge Hit the Mainstream",
             "title": "Mezzanine and Cartridge Hit the Mainstream",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "mezzanine cartridge django australia techworld cio magazine open source",
@@ -169,7 +169,7 @@
             "description": "Having remained utterly faithful to Python and\nDjango over the last year, and dedicating all\nof my available time to open source projects like\nMezzanine and\nCartridge, with the new year at hand I though it\nwas about time to take a break and add some new technology to my repertoire.\nDuring his keynote speech at Djangocon.eu\n2010, the creator of Django Jacob\nKaplan-Moss states \u201cit will challenge what you think\nyou know about web/server architecture\u201d when referring to\nNode.js. Since then it has been sitting in the back of my\nmind as something I definitely needed to check out, so I decided to dive in\nhead first.",
             "title": "How I Now Know Node",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "coffeescript javascript node.js sockets",
@@ -192,7 +192,7 @@
             "description": "I recently came across the Rosetta Code Project.\nIt&rsquo;s a community contributed wiki that contains hundreds of solutions to\nprogramming problems,\nimplemented in hundreds of different programming\nlanguages, which\nis great source of entertainment for a programming languages enthusiast such\nas myself. The main focus of the project isn&rsquo;t to demonstrate individual\nsolutions on their own, but to provide comparisons between different\nprogramming languages and how they approach the same task.",
             "title": "Grillo, a Terminal Based Chat Server and Client",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "rosetta code python sockets open source",
@@ -215,7 +215,7 @@
             "description": "2010 was an amazing year for me professionally. I learnt and achieved much\nmore than I&rsquo;ve historically packed into a single year, so like many other I&rsquo;ve\ndecided to jump on the &ldquo;year in review&rdquo; bandwagon and put this post\ntogether.",
             "title": "2010: My Year In Review",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python django open source mezzanine django dash",
@@ -238,7 +238,7 @@
             "description": "Web development technology has come an incredibly long way over the last\ndecade. Unfortunately in local markets like Australia where I reside, the tech\nsector seems to languish years behind the United States and Europe. We saw\nthis happen with broadband adoption at the turn of the century where most\nAustralians were still on dial-up for years after the rest of the world\nenjoyed widely available cable and ADSL.",
             "title": "On Modern Web Development",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "asp.net australia django java open source php security",
@@ -261,7 +261,7 @@
             "description": "I&rsquo;m happy to announce the first release of\nCartridge - a\nDjango shopping cart application I started\nworking on back in 2009. The development path that Cartridge has taken has\nbeen a strange one. I stopped working on it throughout 2010 in order to get\nthe ball rolling with a project called Mezzanine\nthat I&rsquo;ve blogged about previously. Many parts of Mezzanine actually\noriginated in Cartridge and once development of Mezzanine was well under way\nit made the most sense for continued development of Cartridge to occur as a\nplug-in for Mezzanine which has now come to fruition.",
             "title": "Plugging In Cartridge",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django python mezzanine cartridge ecommerce",
@@ -284,7 +284,7 @@
             "description": "You&rsquo;d be forgiven for reading the title of this post and thinking it&rsquo;s about a\ncrazy approach to project briefing that somehow mimics open source development\n- as interesting as that sounds, it isn&rsquo;t the case and my motives are much\nmore simplistic and sinister. What I&rsquo;d like to do here is put a brief together\nfor an open source project called Mezzanine. This\nbrief isn&rsquo;t specifically geared towards programmers so if you think this isn&rsquo;t\nfor you then please continue reading and let me prove you wrong.",
             "title": "An Open Source Brief",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python django open source mezzanine",
@@ -307,7 +307,7 @@
             "description": "Ask any developer that has put together a Django admin\ninterface and they&rsquo;ll\ntell you that it&rsquo;s an amazing piece of technology that allows you to whip up\nan admin system for your web application in a number of minutes rather than\ndays. Unfortunately this power can be a double-edged sword as without enough\ntime and thought up front, a developer can easily end up creating an interface\nthat&rsquo;s almost impossible for its intended audience to work with.",
             "title": "Mezzanine: Just Another Django CMS?",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django python php cms mezzanine",
@@ -330,7 +330,7 @@
             "description": "Like a lot of Django shops our software stack consists of two layers up front:\na public facing web/proxy server and an application server sitting behind it.\nFor a long time we&rsquo;ve enjoyed success using nginx and\nApache to fill these roles respectively, but as an\napplication server the 800 pound gorilla that is Apache can really be\noverkill, which over time we&rsquo;ve found can have quite a cost around lack of\ngranular control. So we recently decided to try out the up and coming\ngunicorn which is currently gaining in popularity\nthroughout the Django community and so far it&rsquo;s been very smooth.",
             "title": "Announcing gunicorn-console",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django gunicorn python curses",
@@ -353,7 +353,7 @@
             "description": "A project of mine contains a number of third-party apps that are development\nrelated and potentially not available on every machine the project will run\non. My general approach to dealing with these was to try and import the app in\nmy settings module and if successful, add it to the INSTALLED_APPS\nsetting. However as the number of these apps grew it became a wart within the\nsettings module so I put together this snippet for managing them.",
             "title": "Optional Django Apps",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python django",
@@ -376,7 +376,7 @@
             "description": "Anyone who has programmed in Python for a considerable length of time will at\nleast have some passing familiarity with PEP\n8 - the document that goes into an\nincredible level of detail in dictating precisely how code should be written.\nWhile its primary goal is to ensure that Python code is written in a\nconsistant fashion throughout the community, therefore making it as easy as\npossible to read, it also provides one of many aspects that makes programming\nin Python an incredibly efficient process - it negates the need for a lot of\ndecision making around any of the choices one might come across that are\nalready covered in PEP 8.",
             "title": "Where is PEP 8 for Technical Documentation?",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python documentation",
@@ -399,7 +399,7 @@
             "description": "Earlier this week I had the pleasure of removing my final Windows install\nafter wiping my machine at work and installing Ubuntu on it. It was during the\nlate 90s that I first tried out Linux after getting my hands on a Redhat 6.1\nCD from the cover of a magazine I&rsquo;d bought. I didn&rsquo;t keep it installed for\nvery long and after a few more tries over the years with Mandrake (now\nMandrivia) and Damn Small Linux, it wasn&rsquo;t until 2005 when I installed\nSlackware 10.2 as my primary operating system at home and really cut my teeth\non it in order to test how cross-platform my Python projects were. It was a\ngreat experience learning about all the various sub-systems, compiling\nsoftware and libraries from source, embracing the command line and modifying\nsome of the internal scripts to get things working the way I wanted.",
             "title": "Hasta la Vista, Windows",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "linux x.org",
@@ -422,7 +422,7 @@
             "description": "My current project has the common requirement of storing and rendering a\nhierarchical tree of categories. This project is geared towards potentially\njunior developers with the expectation of it being hacked at every time it&rsquo;s\nused - a set of scaffolding where simplicity isn&rsquo;t just a loose goal but a\nfundamental requirement.",
             "title": "Linear Traversal of Adjacency List Trees",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "python algorithms data structures",
@@ -445,7 +445,7 @@
             "description": "Technology shows style of things to come",
             "title": "Technology shows style of things to come",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django facebook",
@@ -468,7 +468,7 @@
             "description": "Many major Linux distributions such as Ubuntu ship with\ngedit as the default text editor. It has\nall the standard features you&rsquo;d expect in an editor such as syntax\nhighlighting, a tabbed interface and the ability to integrate external tools.\nMost importantly it&rsquo;s highly extensible with the ability to create plug-\nins for it written in Python or C.",
             "title": "FTP Browser for gedit",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "gedit linux python gnome",
@@ -491,7 +491,7 @@
             "description": "Lately I&rsquo;ve noticed people posting various different takes on making the\ndefault Django settings a lot more dynamic. The development and deployment\nrequirements for the projects I work on tend to be far from straight-forward\nand over time I&rsquo;ve come up with my own approach to Django settings, so here it\nis.",
             "title": "Dynamic Django Deployment",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "django python",
@@ -514,7 +514,7 @@
             "description": "After living the last few years without a mobile phone it finally became a\nproblem for me so recently I decided to get a new one. I only needed something\nsimple for receiving calls, not making them so any kind of plan or contract\nwas out of the question since I could spend a few bucks on pre-paid and\ntheoretically not pay anything after that. I didn&rsquo;t consider any of the latest\nsmart-phones either like the HTC or iPhone (I wouldn&rsquo;t buy a crippled device\nanyway) since they&rsquo;re so ridiculously priced compared to lower end models that\naren&rsquo;t even a year old.",
             "title": "Nokia E63",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "nokia symbian python",
@@ -537,7 +537,7 @@
             "description": "I think CHM files are great and my main Python reference is the CHM version of\nthe main documentation. I\u2019ve used GnoCHM\nwhich is the default CHM viewer for Gnome for quite a while and it\u2019s really\npoor - slow as hell on startup and segfaults half the time you click a link. I\nfinally gave up and looked for an alternative which I found in\nKchmViewer which appears to be the default CHM\nviewer for KDE. As usual the KDE counterpart of a given Gnome app is much\neasier on the eyes and in this case the problems I had are solved - lightning\nfast and stable.",
             "title": "CHM Files on Linux",
             "rating_average": 0.0,
-            "image": "",
+
             "categories": [],
             "site": 1,
             "keywords_string": "chm linux gnome kde",
