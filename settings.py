@@ -5,10 +5,6 @@ import os, sys;
 sys.path.insert(0, os.path.join("..", "mezzanine"))
 sys.path.insert(0, os.path.join("..", "cartridge"))
 
-from cartridge.project_template.settings import *
-
-# Cartridge Settings.
-SHOP_SSL_ENABLED = False
 
 # Main Django settings.
 DEBUG = False
@@ -80,34 +76,93 @@ ROOT_URLCONF = "%s.urls" % PROJECT_DIRNAME
 # Don't forget to use absolute paths, not relative paths.
 TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
-LOGIN_URL = "/shop/account/"
+
+# URLs used for login/logout when ACCOUNTS_ENABLED is set to True.
+LOGIN_URL = "/account/"
+LOGOUT_URL = "/account/logout/"
 
 
 ################
 # APPLICATIONS #
 ################
 
-# django.contrib.sites should be before cartridge.shop to avoid a
-# foreign key error when installing the test fixtures with Postgres,
-# and cartridge.shop should be before mezzanine.core so that the
-# shop's base template is loaded over mezzanine's.
-
-INSTALLED_APPS = list(INSTALLED_APPS)
-INSTALLED_APPS.remove("django.contrib.sites")
-INSTALLED_APPS = tuple(INSTALLED_APPS)
-INSTALLED_APPS = ("demo", "mezzanine.mobile", "django.contrib.sites",
-                  "cartridge.shop") + INSTALLED_APPS
-
-TEMPLATE_CONTEXT_PROCESSORS += (
-    "cartridge.shop.context_processors.shop_globals",
+INSTALLED_APPS = (
+    "demo",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.redirects",
+    "django.contrib.sessions",
+    "django.contrib.sites",
+    "django.contrib.sitemaps",
+    "django.contrib.staticfiles",
+    "cartridge.shop",
+    "mezzanine.boot",
+    "mezzanine.conf",
+    "mezzanine.core",
+    "mezzanine.generic",
+    "mezzanine.blog",
+    "mezzanine.forms",
+    "mezzanine.pages",
+    "mezzanine.galleries",
+    "mezzanine.twitter",
+    "mezzanine.mobile",
 )
 
-MIDDLEWARE_CLASSES += (
-    "cartridge.shop.middleware.SSLRedirect",
+# List of processors used by RequestContext to populate the context.
+# Each one should be a callable that takes the request object as its
+# only parameter and returns a dictionary to add to the context.
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.contrib.messages.context_processors.messages",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.static",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+    "mezzanine.conf.context_processors.settings",
+)
+
+# List of middleware classes to use. Order is important; in the request phase,
+# this middleware classes will be applied in the order given, and in the
+# response phase the middleware will be applied in reverse order.
+MIDDLEWARE_CLASSES = (
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
+    "mezzanine.core.middleware.DeviceAwareUpdateCacheMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "mezzanine.core.middleware.TemplateForDeviceMiddleware",
+    "mezzanine.core.middleware.DeviceAwareFetchFromCacheMiddleware",
+    "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
+    "mezzanine.core.middleware.SSLRedirectMiddleware",
+    "cartridge.shop.middleware.ShopMiddleware",
     "demo.middleware.BlockPasswordChange",
 )
 
+# Store these package names here as they may change in the future since
+# at the moment we are using custom forks of them.
+PACKAGE_NAME_FILEBROWSER = "filebrowser_safe"
+PACKAGE_NAME_GRAPPELLI = "grappelli_safe"
+
+
+#########################
+# OPTIONAL APPLICATIONS #
+#########################
+
+# These will be added to ``INSTALLED_APPS``, only if available.
+OPTIONAL_APPS = (
+    "django_extensions",
+    PACKAGE_NAME_FILEBROWSER,
+    PACKAGE_NAME_GRAPPELLI,
+)
+
+
 # Mezzanine settings.
+USE_SOUTH = True
+
 from django.utils.translation import ugettext_lazy as _
 ADMIN_MENU_ORDER = (
     (_("Content"), ("pages.Page", "blog.BlogPost", "generic.ThreadedComment",

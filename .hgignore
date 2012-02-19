@@ -2,6 +2,10 @@ syntax: glob
 *.pyc
 *.pyo
 *.db
+.DS_Store
+.coverage
 local_settings.py
-site_media/css
-site_media/js
+build/*
+dist/*
+static/media/*
+
