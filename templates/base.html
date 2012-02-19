@@ -37,13 +37,14 @@ $(function() {
 .dropdown-menu {left:-15px; text-align:right;}
 .dropdown-toggle {margin-right:2px !important; padding:10px 20px !important;}
 .navbar #primary-menu {overflow:hidden; max-width:500px; height:40px;}
+.spacelab .tagline {color:#000;}
 </style>
 <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
 
 {% block extra_head %}{% endblock %}
 
 </head>
-<body id="{% block body_id %}{% endblock %}">
+<body id="{% block body_id %}{% endblock %}" class="{{ request.COOKIES.theme|default:"spacelab" }}">
 
 <div class="navbar">
 <div class="navbar-inner">
