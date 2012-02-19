@@ -27,7 +27,7 @@ $(function() {
     $('.control-group label').addClass('control-label');
     $('.dropdown-toggle').dropdown();
     $('.themes a').click(function() {
-        $.cookie('theme', $(this).text().toLowerCase());
+        $.cookie('theme', $(this).text().toLowerCase(), {path: '/'});
         location.reload();
         return false;
     });
