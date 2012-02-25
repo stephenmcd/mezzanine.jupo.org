@@ -28,6 +28,9 @@ h3 {margin-bottom:20px;}
 /* Rotating quotes */
 .quotes li {list-style-type:none; display:none; height:60px;}
 .quotes .first {display:block;}
+@media (max-width:480px) {
+  h2, .quotes {margin-top:20px;}
+}
 
 /* Right hand col */
 .right p, .right pre {margin:20px 15px;}
@@ -74,6 +77,12 @@ pre em {color:#555;}
 #sites {text-align:center; margin:30px 20px 10px 0; padding:10px 0;}
 #sites img {max-width:24%; margin:15px; box-shadow:0 0 10px #666; border-radius:3px;}
 .carousel-control {margin-top:0; background:#197499;}
+@media (max-width:480px) {
+  #sites img {max-width:20%;}
+  .carousel-control {margin-top:-15px;}
+  #sites .left {margin-left:-10px;}
+  #sites .right {margin-right:-10px;}
+}
 
 /* Features list */
 .features {padding-top:0;}
@@ -92,3 +101,7 @@ footer .container {padding:40px 0;}
 .credits img {margin:30px 10px;}
 #contributors {display:none;}
 #contributors li {float:left; width:50%; list-style-type:square;}
+@media (max-width:480px) {
+  footer .container {padding:40px 20px;}
+  .contributor-link {display:block;}
+}
