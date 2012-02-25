@@ -29,7 +29,7 @@ h3 {margin-bottom:20px;}
 .quotes li {list-style-type:none; display:none; height:60px;}
 .quotes .first {display:block;}
 @media (max-width:480px) {
-  h2, .quotes {margin-top:20px;}
+  h2, .quotes {margin:20px 0 0 0;}
 }
 
 /* Right hand col */
@@ -80,8 +80,8 @@ pre em {color:#555;}
 @media (max-width:480px) {
   #sites img {max-width:20%;}
   .carousel-control {margin-top:-15px;}
-  #sites .left {margin-left:-10px;}
-  #sites .right {margin-right:-10px;}
+  #sites .left {margin-left:-30px;}
+  #sites .right {margin-right:-30px;}
 }
 
 /* Features list */
