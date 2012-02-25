@@ -1,0 +1,97 @@
+@font-face {
+  font-family:'Yanone Kaffeesatz'; font-style:normal; font-weight: 700;
+  src: local('Yanone Kaffeesatz Bold'), local('YanoneKaffeesatz-Bold'),
+  url('../fonts/Yanone.woff') format('woff');
+}
+
+/* General */
+body {background:#fff;}
+* {color:#555;}
+p {margin:20px 20px 0 0;}
+a {color:#197499;}
+.row {padding:30px 0 15px 0;}
+.fill {background:rgb(239, 226, 222);}
+.container .fill {border-radius:5px;}
+.topbar {height:40px;}
+.hr {height:3px;}
+
+/* Logo and headings */
+h1, h2, h3 {margin-left:0 !important;}
+h1 {
+    font-family:'Yanone Kaffeesatz'; font-size:35px; color:#fff; float:left;
+    line-height:150px; width:150px; height:150px; text-align:center;
+    margin:30px 25px 10px 0; border-radius:1000px; background:rgb(189, 54, 47);
+}
+h2, h3 {color:rgb(189, 54, 47);}
+h2, h3 {font-size:22px; line-height:24px;}
+h2 {padding:60px 100px 10px 0;}
+h3 {margin-bottom:20px;}
+.fork {position: absolute; top: 0; right: 0; border: 0;}
+
+/* Rotating quotes */
+.quotes li {list-style-type:none; display:none; height:60px;}
+.quotes .first {display:block;}
+
+/* Right hand col */
+.right p, .right pre {margin:20px 15px;}
+.right h3 {color:#444; text-align:center;}
+.right-fill {padding:10px 0;}
+
+/* Right col drop-down buttons */
+.btn, h1, h2, h3 {text-transform:uppercase;}
+.btn-group {margin:5px 30px 15px 10px;}
+.btn-danger {background:rgb(189, 54, 47); font-weight:bold;}
+.btn-danger img {vertical-align:middle; margin:-6px 3px 0 0; opacity:.6;}
+.btn-danger:hover img, .open img {opacity:.9;}
+.btn-group ul {width:248px;}
+.dropdown-menu, .dropdown-toggle {width:100%;}
+
+/* Demo credentials */
+.login {text-align:center; font-size:14px; font-weight:bold; padding:15px 20px 15px 0; margin:0 10px;}
+.login label {display:inline; margin-left:20px;}
+
+/* Quick start code */
+pre {
+    text-transform:none; background:#222; color:#08c; padding:15px;
+    font-family: Menlo, Monaco, 'Andale Mono', 'lucida console', 'Courier New', monospace;
+}
+pre em {color:#555;}
+
+/* Right-hand col links */
+.links img {
+    background:rgb(189, 54, 47); margin:-5px 10px 0 0; border-radius:5px;
+    padding:7px; vertical-align:middle;
+}
+.links {margin:30px 0 0 0;}
+.links li {margin:20px; white-space:nowrap;}
+.links a {text-transform:uppercase; font-weight:bold; color:#444; font-size:16px;}
+
+/* Donate */
+.donate {text-align:center;}
+.donate p {text-align:left; padding:5px 0 0 10px; margin-right:0; font-style:italic;}
+.donate iframe {margin:20px 20px 0 -10px;}
+.donate form {display:inline;}
+.donate input {margin-top:-50px;}
+
+/* Sites carousel */
+#sites {text-align:center; margin:30px 20px 10px 0; padding:10px 0;}
+#sites img {max-width:24%; margin:15px; box-shadow:0 0 10px #666; border-radius:3px;}
+.carousel-control {margin-top:0; background:#197499;}
+
+/* Features list */
+.features {padding-top:0;}
+.features li {margin:0 -45px 5px 45px; list-style-type:square;}
+
+/* Footer */
+footer {box-shadow:inset 0 0 30px rgba(39, 26, 22, .1)}
+footer .container {padding:40px 0;}
+.mentions {padding-top:0; padding-bottom:0; margin-top:0; margin-bottom:0;}
+.mentions .span4 {margin-bottom:15px;}
+.mentions em {color:#999; white-space:nowrap;}
+.credits {text-align:center; margin:50px 0;}
+.credits, .credits a {font-size:12px;}
+.sep {display:inline; margin:0 5px;}
+@media (max-width:767px) {.sep {width:1px; height:1px; visibility: hidden; display:block;}}
+.credits img {margin:30px 10px;}
+#contributors {display:none;}
+#contributors li {float:left; width:50%; list-style-type:square;}

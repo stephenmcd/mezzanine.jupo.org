@@ -81,6 +81,12 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 LOGIN_URL = "/account/"
 LOGOUT_URL = "/account/logout/"
 
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    # other finders..
+    'compressor.finders.CompressorFinder',
+)
 
 ################
 # APPLICATIONS #
@@ -88,6 +94,7 @@ LOGOUT_URL = "/account/logout/"
 
 INSTALLED_APPS = (
     "demo",
+    "compressor",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

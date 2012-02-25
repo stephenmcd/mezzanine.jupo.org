@@ -30,7 +30,13 @@
 
 <p class="download"><a
     href="http://pypi.python.org/packages/source/M/Mezzanine/Mezzanine-{{ version }}.tar.gz">Latest version: {{ version }}</a></p>
-{{ quotes|safe }}
+    <blockquote>
+    <ul>
+    {% for quote in quotes %}
+    <li{% if forloop.first %} class="first"{% endif %}>{{ quote|safe }}</li>
+    {% endfor %}
+    </ul>
+    </blockquote>
 
 <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="donate">
 <input type="hidden" name="cmd" value="_s-xclick">

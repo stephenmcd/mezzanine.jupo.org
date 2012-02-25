@@ -3,15 +3,10 @@
 {% block extra_js %}
 <script>
 $(function() {
-    $('.simple').html($.map($('.simple li'), function(li) {
-        return '<li>' + $(li).html() + '</li>';
-    }).reverse().join(''));
-    $('.simple a').each(function(i, a) {
+    $('ul a').each(function(i, a) {
         a = $(a);
-        if ($.inArray(a.text(), ['daon.ru', 'Imageinary']) == -1) {
-            a.before('<a href="' + a.attr('href') + '"><img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwsize=xlg&stwhash=ab8d131bf9&stwaccesskeyid=b17ffbafd0c5e10&stwurl=' + encodeURIComponent(a.attr('href')) + '"></a><br>');
-            a.parent().show();
-        }
+        a.before('<a href="' + a.attr('href') + '"><img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwsize=xlg&stwhash=ab8d131bf9&stwaccesskeyid=b17ffbafd0c5e10&stwurl=' + encodeURIComponent(a.attr('href')) + '"></a><br>');
+        a.parent().show();
     });
 });
 </script>
@@ -20,10 +15,10 @@ $(function() {
 {% block extra_css %}
 <style>
     #main {width: 960px;}
-    .simple {width:auto;}
-    .simple li {width:280px; height:240px; float:left; text-align:center;
+    ul {width:auto;}
+    li {width:280px; height:240px; float:left; text-align:center;
                 margin:20px; display:none;}
-    .simple li img {width:280px; height:213px;
+    li img {width:280px; height:213px;
 	    -webkit-border-radius: 4px;
 	    -moz-border-radius: 4px;
 	    border-radius: 4px;
@@ -42,6 +37,10 @@ These sites are powered by Mezzanine.<br>You can add your own site to this galle
 <a href="https://github.com/stephenmcd/mezzanine/edit/master/README.rst">editing the README on Github</a>.
 <br>Please note that this will create a fork of Mezzanine under your Github account.
 </p>
-{{ sites|safe }}
+<ul>
+{% for site in sites %}
+<li>{{ site|safe }}</li>
+{% endfor %}
+</ul>
 <br clear="all">
 {% endblock %}
