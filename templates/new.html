@@ -164,6 +164,9 @@ $ python manage.py runserver</pre>
     {% tweets_for_search "from:stephen_mcd mezzanine" as tweets %}
     <div class="row mentions">
         {% for tweet in tweets|slice:":9"|retweets_in_search_fixer %}
+        {% if forloop.counter0 > 0 and forloop.counter0|divisibleby:3 %}
+        </div><div class="row mentions">
+        {% endif %}
         <div class="span4">{{ tweet.text|safe }} <em>{{ tweet.created_at|timesince }} ago</em></div>
         {% endfor %}
     </div>
