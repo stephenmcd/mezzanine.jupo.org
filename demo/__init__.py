@@ -25,7 +25,7 @@ else:
 # assign them to variables for the homepage.
 home_context = {"version": mezzanine.__version__}
 for section in ("Sites Using Mezzanine", "Quotes", "Features"):
-    items = README.split("<h1>%s</h1>" % section)[1] \
+    items = README.split("<h2>%s</h2>" % section)[1] \
                   .split("<li>", 1)[1].split("</li>\n</ul>")[0] \
                   .split("</li>\n<li>")
     home_context[section.split()[0].lower()] = items
@@ -38,10 +38,6 @@ home_context["overview"] = README.split("Overview</h1>")[1].split("<p>Visit")[0]
 
 
 path = os.path.join(path_for_import("mezzanine"), "..", "AUTHORS")
-try:
-    with open(path, "r") as f:
-        data = f.read()
-except IOError:
-    pass
-else:
-    home_context["authors"] = [a.strip("* ") for a in data.split("\n")][1:-1]
+with open(path, "r") as f:
+    data = f.read()
+home_context["authors"] = [a.strip("* ") for a in data.split("\n")][1:-1]
