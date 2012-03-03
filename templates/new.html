@@ -41,7 +41,7 @@
         <h2>An open source content management platform built using the Django framework</h2>
         <ul class="quotes">
             {% for quote in quotes %}
-            <li{% if forloop.first %} class="first"{% endif %}>{{ quote|cut:"&quot;"|cut:"."|safe }}</li>
+            <li{% if forloop.first %} class="first"{% endif %}>{{ quote|cut:"&quot;"|safe }}</li>
             {% endfor %}
         </ul>
     </div>
