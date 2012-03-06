@@ -21,13 +21,14 @@ h1 {
 }
 h2, h3 {color:rgb(189, 54, 47);}
 h2, h3 {font-size:22px; line-height:24px;}
-h2 {padding:60px 100px 10px 0;}
+h2 {padding:50px 100px 10px 0;}
 h3 {margin-bottom:20px;}
 .fork {position: absolute; top: 0; right: 0; border: 0;}
 
 /* Rotating quotes */
-.quotes li {list-style-type:none; display:none; height:60px;}
+.quotes li {list-style-type:none; display:none; height:80px;}
 .quotes .first {display:block;}
+.quotes em {display:block; margin:5px 0; text-indent:3px;}
 @media (max-width:480px) {
   h2, .quotes {margin:20px 0 0 0;}
 }
