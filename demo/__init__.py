@@ -31,8 +31,9 @@ for section in ("Sites Using Mezzanine", "Quotes", "Features"):
     home_context[section.split()[0].lower()] = items
 
 sites_ignore = ['daon.ru', 'Imageinary', 'mezzanine.jupo.org']
-home_context["sites"] = reversed([s for s in home_context["sites"] if not
-                                 [i for i in sites_ignore if i in s]])
+home_context["sites"] = [s for s in home_context["sites"] if not
+                        [i for i in sites_ignore if i in s]]
+home_context["sites"].reverse()
 home_context["overview"] = README.split("Overview</h1>")[1].split("<p>Visit")[0]
 home_context["quotes"] = ["<em>" + q.replace("- <a", "</em>- <a", 1)
                           for q in home_context["quotes"]]
