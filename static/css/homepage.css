@@ -54,7 +54,8 @@ h3 {margin-bottom:20px;}
 
 /* Demo credentials */
 .login {text-align:center; font-size:14px; font-weight:bold; padding:15px 20px 15px 0; margin:0 10px;}
-.login label {display:inline; margin-left:20px;}
+.login label {display:inline; margin:0 10px;}
+.login span {white-space:nowrap;}
 
 /* Quick start code */
 pre {
@@ -73,7 +74,7 @@ pre em {color:#555;}
 .links a {text-transform:uppercase; font-weight:bold; color:#444; font-size:16px;}
 
 /* Donate */
-.donate {text-align:center;}
+.donate {text-align:center; margin-bottom:20px;}
 .donate p {text-align:left; padding:5px; margin-right:0; font-style:italic;}
 .donate iframe {margin:20px 20px 0 -10px;}
 .donate form {display:inline;}
@@ -97,7 +98,7 @@ pre em {color:#555;}
 
 /* Footer */
 footer {box-shadow:inset 0 0 30px rgba(39, 26, 22, .1)}
-footer .container {padding:40px 0;}
+footer .container {padding:40px 20px;}
 .mentions {padding-top:0; padding-bottom:0; margin-top:0; margin-bottom:0;}
 .mentions .span4 {margin-bottom:15px;}
 .mentions em {color:#999; white-space:nowrap;}
@@ -109,6 +110,5 @@ footer .container {padding:40px 0;}
 #contributors {display:none;}
 #contributors li {float:left; width:50%; list-style-type:square;}
 @media (max-width:480px) {
-  footer .container {padding:40px 20px;}
   .contributor-link {display:block;}
 }
