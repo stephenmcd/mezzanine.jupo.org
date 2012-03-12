@@ -48,10 +48,14 @@ $(function() {
 .dropdown-menu {left:-15px; text-align:right;}
 .dropdown-toggle {margin-right:2px !important; padding:10px 20px !important;}
 #primary-menu {overflow:hidden; max-width:500px; height:40px;}
-.journal .tagline, .spacelab .tagline {color:#000;}
+.readable .tagline, .journal .tagline, .spacelab .tagline {color:#000;}
 .superhero #primary-menu {height:80px;}
 .superhero .tagline {margin-top:33px;}
 .spruce .tagline {margin-top:21px;}
+.readable .tagline {margin-left:5px;}
+.readable .themes {left:22px;}
+.readable p, .readable ul {line-height:28px;}
+.amelia .tagline {margin-top:15px;}
 @media (max-width: 979px) {#primary-menu {height:auto;}}
 </style>
 <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
@@ -95,10 +99,12 @@ $(function() {
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu themes">
+    <li><a href="#">Amelia</a></li>
     <li><a href="#">Bootstrap</a></li>
     <li><a href="#">Cerulean</a></li>
     <li><a href="#">Cyborg</a></li>
     <li><a href="#">Journal</a></li>
+    <li><a href="#">Readable</a></li>
     <li><a href="#">Slate</a></li>
     <li><a href="#">Superhero</a></li>
     <li><a href="#">Spacelab</a></li>
