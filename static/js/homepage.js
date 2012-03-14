@@ -30,16 +30,11 @@ $(function() {
     quotes();
 
     // Sites carousel
-    $('.carousel .item a').each(function(i, a) {
-        a = $(a);
-        a.html('<img src="http://images.shrinktheweb.com/xino.php?stwembed=1&stwsize=xlg&stwhash=ab8d131bf9&stwaccesskeyid=b17ffbafd0c5e10&stwurl=' + encodeURIComponent(a.attr('href')) + '">');
-    });
     $('.carousel').mouseenter(function() {
         $(this).carousel('pause');
     }).mouseleave(function() {
         $(this).carousel('next');
-    });
-    $('.carousel').carousel();
+    }).carousel();
 
     // Google analytics
     var _gaq = _gaq || [];

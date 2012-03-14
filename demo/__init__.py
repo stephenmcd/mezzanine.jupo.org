@@ -30,8 +30,10 @@ for section in ("Sites Using Mezzanine", "Quotes", "Features"):
                   .split("</li>\n<li>")
     home_context[section.split()[0].lower()] = items
 
-sites_ignore = ['daon.ru', 'Imageinary', 'mezzanine.jupo.org']
-home_context["sites"] = [s for s in home_context["sites"] if not
+sites_ignore = []#'daon.ru', 'Imageinary', 'mezzanine.jupo.org']
+home_context["sites"] = [(s.split("href=\"")[1].split("\"")[0],
+                          s.split(">")[1].split("</a")[0])
+                         for s in home_context["sites"] if not
                         [i for i in sites_ignore if i in s]]
 home_context["sites"].reverse()
 home_context["overview"] = README.split("Overview</h1>")[1].split("<p>Visit")[0]
