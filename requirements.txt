@@ -1,0 +1,4 @@
+-e git://github.com/stephenmcd/mezzanine.git#egg=mezzanine
+-e git://github.com/stephenmcd/cartridge.git#egg=cartridge
+docutils
+django-compressor
