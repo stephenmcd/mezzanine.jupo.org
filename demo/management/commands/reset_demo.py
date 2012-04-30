@@ -23,6 +23,7 @@ class Command(NoArgsCommand):
                 model.objects.all().delete()
         call_command("loaddata", "mezzanine", **options)
         call_command("loaddata", "cartridge", **options)
+        call_command("loaddata", "demo_data", **options)
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         if os.path.exists(uploads):
             rmtree(uploads)
