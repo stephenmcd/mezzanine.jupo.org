@@ -5,6 +5,10 @@ import os, sys;
 sys.path.insert(0, os.path.join("..", "mezzanine"))
 sys.path.insert(0, os.path.join("..", "cartridge"))
 
+AUTH_PROFILE_MODULE = "demo.Profile"
+USE_TZ = True
+AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
+
 
 # Main Django settings.
 DEBUG = False
@@ -114,6 +118,7 @@ INSTALLED_APPS = (
     "mezzanine.galleries",
     "mezzanine.twitter",
     "mezzanine.mobile",
+    "mezzanine.accounts",
 )
 
 # List of processors used by RequestContext to populate the context.
@@ -147,6 +152,7 @@ MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.SSLRedirectMiddleware",
     "cartridge.shop.middleware.ShopMiddleware",
     "demo.middleware.BlockPasswordChange",
+    "mezzanine.pages.middleware.PageMiddleware",
 )
 
 # Store these package names here as they may change in the future since
