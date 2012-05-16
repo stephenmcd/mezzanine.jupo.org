@@ -2,10 +2,16 @@
 from mezzanine.project_template.fabfile import *
 
 
+_install = install
+_deploy = deploy
 doc_repos = ("mezzanine", "cartridge")
 
 
-def install_docs():
+def install():
+    _install()
+    create()
+    manage("createsuperuser")
+    manage("reset_demo")
     with cd(env.venv_home):
         if not exists("docs"):
             run("virtualenv docs --distribute")
@@ -17,21 +23,12 @@ def install_docs():
                 with cd("docs"):
                     run("hg clone http://bitbucket.org/stephenmcd/" + repo)
 
-def install_all():
-    install()
-    install_docs()
-    deploy_all()
-    manage("createsuperuser")
-    manage("reset_demo")
-
-def deploy_docs():
+def deploy():
+    if not _deploy():
+        return
     for repo in doc_repos:
         with cd("%s/docs/%s" % (env.venv_home, repo)):
             run("hg pull")
             run("hg up -C")
             with prefix("source %s/docs/bin/activate" % env.venv_home):
                 run("sphinx-build docs docs/build")
-
-def deploy_all():
-    deploy()
-    deploy_docs()
