@@ -53,10 +53,18 @@
 {% compress js %}
 <script src="{{ STATIC_URL }}mezzanine/js/{{ settings.JQUERY_FILENAME }}"></script>
 <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.cookie.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
 <script>
 $(function() {
     $('.middleinput:text, textarea').addClass('xlarge');
     $('.control-group label').addClass('control-label');
+    $('.dropdown-toggle').dropdown();
+    $('.themes a').click(function() {
+        $.cookie('theme', $(this).text().toLowerCase(), {path: '/'});
+        location.reload();
+        return false;
+    });
 });
 </script>
 {% block extra_js %}{% endblock %}
