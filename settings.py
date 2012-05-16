@@ -192,6 +192,12 @@ try:
 except ImportError:
     pass
 
+FABRIC.update({
+    "HOSTS": ["mezzanine.jupo.org"], # List of hosts to deploy to
+    "REQUIREMENTS_PATH": "requirements.txt",
+    "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
+})
+
 # Dynamic settings.
 from mezzanine.utils.conf import set_dynamic_settings
 set_dynamic_settings(globals())
