@@ -1,10 +1,4 @@
 
-import sys, os
-
-import os, sys;
-sys.path.insert(0, os.path.join("..", "mezzanine"))
-sys.path.insert(0, os.path.join("..", "cartridge"))
-
 AUTH_PROFILE_MODULE = "demo.Profile"
 USE_TZ = True
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
@@ -186,17 +180,17 @@ ADMIN_MENU_ORDER = (
     (_("Users"), ("auth.User", "auth.Group",)),
 )
 
+FABRIC = {
+    "HOSTS": ["mezzanone.jupo.org"], # List of hosts to deploy to
+    "REQUIREMENTS_PATH": "requirements.txt",
+    "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
+}
+
 # Local settings.
 try:
     from local_settings import *
 except ImportError:
     pass
-
-FABRIC = {
-    "HOSTS": ["mezzanine.jupo.org"], # List of hosts to deploy to
-    "REQUIREMENTS_PATH": "requirements.txt",
-    "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
-}
 
 # Dynamic settings.
 from mezzanine.utils.conf import set_dynamic_settings

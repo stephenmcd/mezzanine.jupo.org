@@ -23,9 +23,9 @@ class Command(NoArgsCommand):
                 model.objects.all().delete()
         call_command("loaddata", "mezzanine", **options)
         call_command("loaddata", "cartridge", **options)
-        call_command("loaddata", "demo_data", **options)
+        call_command("import_rss", rss_url="http://blog.jupo.org/atom.xml",
+                     mezzanine_user="demo", **options)
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         if os.path.exists(uploads):
             rmtree(uploads)
         os.mkdir(uploads)
-
