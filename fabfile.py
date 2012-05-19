@@ -25,7 +25,6 @@ def install():
 
 def create():
     _create()
-    manage("createsuperuser")
     manage("reset_demo")
 
 
