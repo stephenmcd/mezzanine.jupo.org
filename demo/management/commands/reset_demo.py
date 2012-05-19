@@ -7,6 +7,8 @@ from django.conf import settings
 from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
 
+from mezzanine.blog.models import BlogPost
+
 
 class Command(NoArgsCommand):
     """
@@ -25,6 +27,9 @@ class Command(NoArgsCommand):
         call_command("loaddata", "cartridge", **options)
         call_command("import_rss", rss_url="http://blog.jupo.org/atom.xml",
                      mezzanine_user="demo", **options)
+        BlogPost.objects.exclude(keywords_string__contains="mezzanine") \
+                        .exclude(keywords_string__contains="cartridge") \
+                        .delete()
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         if os.path.exists(uploads):
             rmtree(uploads)
