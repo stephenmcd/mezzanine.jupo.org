@@ -4,6 +4,7 @@ from shutil import rmtree
 
 from django.db.models import get_models
 from django.conf import settings
+from django.contrib.auth.models import User
 from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
 
@@ -30,6 +31,9 @@ class Command(NoArgsCommand):
         BlogPost.objects.exclude(keywords_string__contains="mezzanine") \
                         .exclude(keywords_string__contains="cartridge") \
                         .delete()
+        User.objects.exclude(is_superuser=True) \
+                    .exclude(username="demo") \
+                    .delete()
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         if os.path.exists(uploads):
             rmtree(uploads)
