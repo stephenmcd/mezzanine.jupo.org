@@ -22,8 +22,8 @@ class Command(NoArgsCommand):
         # Build a list of demo-editable models, which is everything
         # in Cartridge and Mezzanine, apart from mezzanine.twitter
         packages = ("mezzanine", "cartridge")
-        twitter = "mezzanine.twitter"
-        reset = lambda a: a.split(".")[0] in packages and a != twitter
+        keep_apps = ("mezzanine.conf", "mezzanine.twitter")
+        reset = lambda a: a.split(".")[0] in packages and a not in keep_apps
         apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS if reset(a)]
         models = [m for m in get_models() if m._meta.app_label in apps]
 
@@ -35,8 +35,13 @@ class Command(NoArgsCommand):
 
         # Maintain permissons for the demo account.
         demo_username = "demo"
-        demo_user = User.objects.get(username=demo_username)
+        demo_user, created = User.objects.get_or_create(username=demo_username)
+        if created:
+            demo_user.set_password("demo")
+            demo_user.is_staff = True
+            demo_user.save()
         demo_user.user_permissions.remove()
+        demo_user.save()
         for model in models:
             ct = ContentType.objects.get_for_model(model)
             for permission in Permission.objects.filter(content_type=ct):
