@@ -10,6 +10,8 @@ from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
 
 from mezzanine.blog.models import BlogPost
+from mezzanine.core.management import create_pages
+from cartridge.shop.management import create_initial_product
 
 
 class Command(NoArgsCommand):
@@ -51,9 +53,9 @@ class Command(NoArgsCommand):
         keep_users = Q(is_superuser=True) | Q(username=demo_username)
         User.objects.exclude(keep_users).delete()
 
-        # Load initial demo data.,
-        call_command("loaddata", "mezzanine", **options)
-        call_command("loaddata", "cartridge", **options)
+        # Load initial demo data.
+        create_pages(None, models, verbosity=1, interactive=False)
+        create_initial_product(None, models, verbosity=1, interactive=False)
         call_command("import_rss", rss_url="http://blog.jupo.org/atom.xml",
                      mezzanine_user=demo_username, **options)
         mezzanine_posts = Q(keywords_string__contains="mezzanine")
