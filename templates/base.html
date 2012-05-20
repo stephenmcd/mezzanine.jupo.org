@@ -1,5 +1,5 @@
-{% load pages_tags mezzanine_tags i18n %}
 <!DOCTYPE html>
+{% load pages_tags mezzanine_tags i18n %}
 <html>
 <!--
                                                  .__
@@ -35,7 +35,7 @@
 <style>
 .dropdown-menu {left:-15px; text-align:right;}
 .dropdown-toggle {margin-right:2px !important; padding:10px 20px !important;}
-#primary-menu {overflow:hidden; max-width:500px; height:40px;}
+.navbar .nav {overflow:hidden; max-width:500px; height:40px;}
 .readable .tagline, .journal .tagline, .spacelab .tagline {color:#000;}
 .superhero #primary-menu {height:80px;}
 .superhero .tagline {margin-top:33px;}
@@ -44,7 +44,7 @@
 .readable .themes {left:22px;}
 .readable p, .readable ul {line-height:28px;}
 .amelia .tagline {margin-top:15px;}
-@media (max-width: 979px) {#primary-menu {height:auto;}}
+@media (max-width: 979px) {.navbar .nav {height:auto;}}
 </style>
 
 {% block extra_css %}{% endblock %}
