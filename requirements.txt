@@ -3,3 +3,4 @@
 docutils
 feedparser
 python-dateutil
+slimmer

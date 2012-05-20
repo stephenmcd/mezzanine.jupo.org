@@ -145,7 +145,8 @@ MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.AdminLoginInterfaceSelectorMiddleware",
     "mezzanine.core.middleware.SSLRedirectMiddleware",
     "cartridge.shop.middleware.ShopMiddleware",
-    "demo.middleware.BlockPasswordChange",
+    "demo.middleware.BlockPasswordChangeMiddleware",
+    "demo.middleware.CompactHTMLMiddleware",
     "mezzanine.pages.middleware.PageMiddleware",
 )
 

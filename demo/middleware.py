@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 
 
-class BlockPasswordChange(object):
+class BlockPasswordChangeMiddleware(object):
 
     def process_request(self, request):
         """
@@ -16,3 +16,11 @@ class BlockPasswordChange(object):
             msg = "Username/password change disabled for the demo account."
             return HttpResponse("<h1>Unavailable</h1><p>%s</p>" % msg)
 
+
+class CompactHTMLMiddleware(object):
+
+    def process_response(self, request, response):
+        if 'text/html' in response['Content-Type']:
+            from slimmer import xhtml_slimmer
+            response.content = xhtml_slimmer(response.content)
+        return response
