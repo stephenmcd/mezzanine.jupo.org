@@ -15,7 +15,7 @@ def install():
         if not exists("docs"):
             run("virtualenv docs --distribute")
         with prefix("source %s/docs/bin/activate" % env.venv_home):
-            sudo("pip install sphinx cartridge")
+            sudo("pip install sphinx cartridge fabric")
         for repo in doc_repos:
             repo_path = "docs/%s" % repo
             if not exists(repo_path):
