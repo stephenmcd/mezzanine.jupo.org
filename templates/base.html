@@ -92,7 +92,7 @@ $(function() {
         <form action="{% url search %}" class="navbar-search pull-right">
         <input class="search-query" placeholder="{% trans "Search" %}" type="text" name="q" value="{{ request.REQUEST.q }}">
         </form>
-        {% page_menu "pages/menus/primary.html" %}
+        {% page_menu "pages/menus/dropdown.html" %}
     </div>
 </div>
 </div>
@@ -151,9 +151,9 @@ $(function() {
     {% include "includes/user_panel.html" %}
     <div class="panel">
     {% block right_panel %}
-    {% if "mezzanine.twitter"|is_installed %}
+    {% ifinstalled mezzanine.twitter %}
     {% include "twitter/tweets.html" %}
-    {% endif %}
+    {% endifinstalled %}
     {% endblock %}
     </div>
 </div>
@@ -167,16 +167,16 @@ $(function() {
 <br clear="all">
 <p>
     {% trans "Powered by" %}
-    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% if "cartridge.shop"|is_installed %},
-    <a href="http://cartridge.jupo.org">Cartridge</a>{% endif %}
+    <a href="http://mezzanine.jupo.org">Mezzanine</a>{% ifinstalled cartridge.shop %},
+    <a href="http://cartridge.jupo.org">Cartridge</a>{% endifinstalled %}
     {% trans "and" %}
     <a href="http://www.djangoproject.com">Django</a>
     <span class="separator">|</span>
     Themes by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a href="http://bootswatch.com">Bootswatch</a>
-    {% if "mezzanine.mobile"|is_installed %}
+    {% ifinstalled mezzanine.mobile %}
     <span class="separator">|</span>
     <a href="{% url set_device "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
-    {% endif %}
+    {% endifinstalled %}
 </p>
 </div>
 </footer>
