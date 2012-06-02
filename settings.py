@@ -184,7 +184,7 @@ ADMIN_MENU_ORDER = (
 )
 
 FABRIC = {
-    "HOSTS": ["mezzanone.jupo.org"], # List of hosts to deploy to
+    "HOSTS": ["mezzanine.jupo.org"], # List of hosts to deploy to
     "REQUIREMENTS_PATH": "requirements.txt",
     "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
 }
