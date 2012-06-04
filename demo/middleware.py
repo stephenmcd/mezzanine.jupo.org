@@ -22,5 +22,7 @@ class CompactHTMLMiddleware(object):
     def process_response(self, request, response):
         if 'text/html' in response['Content-Type']:
             from slimmer import xhtml_slimmer
-            response.content = xhtml_slimmer(response.content)
+            content = response.content.replace("</a> <a", "</a>&nbsp;<a")
+            content = xhtml_slimmer(content).replace("</a>&nbsp;<a", "</a> <a")
+            response.content = content
         return response
