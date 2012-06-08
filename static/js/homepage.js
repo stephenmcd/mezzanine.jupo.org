@@ -37,7 +37,7 @@ $(function() {
     }).carousel();
 
     // Google analytics
-    var _gaq = _gaq || [];
+    _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-52596-12']);
     _gaq.push(['_trackPageview']);
     (function() {
