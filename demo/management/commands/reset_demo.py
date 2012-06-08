@@ -53,6 +53,12 @@ class Command(NoArgsCommand):
         keep_users = Q(is_superuser=True) | Q(username=demo_username)
         User.objects.exclude(keep_users).delete()
 
+        # Delete any uploaded files.
+        uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
+        if os.path.exists(uploads):
+            rmtree(uploads)
+        os.mkdir(uploads)
+
         # Load initial demo data.
         create_pages(None, models, verbosity=1, interactive=False)
         create_initial_product(None, models, verbosity=1, interactive=False)
@@ -61,9 +67,3 @@ class Command(NoArgsCommand):
         mezzanine_posts = Q(keywords_string__contains="mezzanine")
         cartridge_posts = Q(keywords_string__contains="cartridge")
         BlogPost.objects.exclude(mezzanine_posts | cartridge_posts).delete()
-
-        # Delete any uploaded files.
-        uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
-        if os.path.exists(uploads):
-            rmtree(uploads)
-        os.mkdir(uploads)
