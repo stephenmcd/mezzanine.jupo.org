@@ -1,4 +1,6 @@
 
+from uuid import uuid4
+
 from django.core.urlresolvers import reverse
 from django.http import HttpResponse
 
@@ -23,6 +25,14 @@ class CompactHTMLMiddleware(object):
         if 'text/html' in response['Content-Type']:
             from slimmer import xhtml_slimmer
             content = response.content.replace("</a> <a", "</a>&nbsp;<a")
+            pre_tokens = {}
+            while "<pre" in content:
+                pre  = content[content.find("<pre"):content.find("</pre>") + 6]
+                token = str(uuid4())
+                content = content.replace(pre, token)
+                pre_tokens[token] = pre
             content = xhtml_slimmer(content).replace("</a>&nbsp;<a", "</a> <a")
+            for token, pre in pre_tokens.items():
+                content = content.replace(token, pre)
             response.content = content
         return response
