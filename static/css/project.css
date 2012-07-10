@@ -96,6 +96,13 @@ pre em {color:#555;}
 }
 .carousel .all {color:#999; font-style:italic; line-height:30px;}
 
+/* All sites gallery */
+@media (max-width:480px) {
+  .all-sites .container img {margin-left:10px;}
+  .all-sites h3 {font-size:16px;}
+  .all-sites .caption {display:none;}
+}
+
 /* Features list */
 .features {padding-top:0;}
 .features li {margin:0 0 5px 16px; list-style-type:square;}
