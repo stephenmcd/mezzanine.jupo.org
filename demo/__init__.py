@@ -20,27 +20,39 @@ except IOError:
 else:
     README = publish_string(data, writer=writer)
 
-
-# Grap the list items inside a blockquote after each title, and
+# Grab the list items inside a blockquote after each title, and
 # assign them to variables for the homepage.
-home_context = {"version": mezzanine.__version__}
+project_context = {"version": mezzanine.__version__}
 for section in ("Sites Using Mezzanine", "Quotes", "Features"):
     items = README.split("<h2>%s</h2>" % section)[1] \
                   .split("<li>", 1)[1].split("</li>\n</ul>")[0] \
                   .split("</li>\n<li>")
-    home_context[section.split()[0].lower()] = items
+    project_context[section.split()[0].lower()] = items
+open("readme.html", "w").write(README)
+# Features are already ordered by user/developer focus - split them.
+i = project_context["features"].index("Sharing via Facebook or Twitter") + 1
+project_context["features_users"] = project_context["features"][:i]
+project_context["features_devs"] = project_context["features"][i:]
 
-sites_ignore = []#'daon.ru', 'Imageinary', 'mezzanine.jupo.org']
-home_context["sites"] = [(s.split("href=\"")[1].split("\"")[0],
-                          s.split(">")[1].split("</a")[0])
-                         for s in home_context["sites"] if not
-                        [i for i in sites_ignore if i in s]]
-home_context["sites"].reverse()
-home_context["overview"] = README.split("Overview</h1>")[1].split("<p>Visit")[0]
-home_context["quotes"] = ["<em>" + q.replace("- <a", "</em>- <a", 1)
-                          for q in home_context["quotes"]]
+# Pull out the featured sites and put them at the start of all sites.
+project_context["featured_sites"] = []
+project_context["all_sites"] = []
+sites = [(s.split("href=\"")[1].split("\"")[0],
+          s.split(">")[1].split("</a")[0])
+         for s in reversed(project_context["sites"])]
+for site in sites:
+    key = "featured_sites" if site[0].endswith("/") else "all_sites"
+    project_context[key].append(site)
+project_context["all_sites"] = (project_context["featured_sites"] +
+                                project_context["all_sites"])
 
+project_context["overview"] = README.split("Overview</h1>")[1]
+project_context["overview"] = project_context["overview"].split("<p>Visit")[0]
+project_context["quotes"] = ["<em>" + q.replace("- <a", "</em>- <a", 1)
+                             for q in project_context["quotes"]]
+
+# Build a list of authors.
 path = os.path.join(path_for_import("mezzanine"), "..", "AUTHORS")
 with open(path, "r") as f:
     data = f.read()
-home_context["authors"] = [a.strip("* ") for a in data.split("\n")][1:-1]
+project_context["authors"] = [a.strip("* ") for a in data.split("\n")][1:-1]

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load compress twitter_tags demo_tags %}
+<html>
+<!--
+                                                 .__
+  _____    ____  _____________________     ____  |__|  ____    ____
+ /     \ _/ __ \ \___   /\___   /\__  \   /    \ |  | /    \ _/ __ \
+|  Y Y  \\  ___/  /    /  /    /  / __ \_|   |  \|  ||   |  \\  ___/
+|__|_|  / \___  >/_____ \/_____ \(____  /|___|  /|__||___|  / \___  >
+      \/      \/       \/      \/     \/      \/          \/      \/
+
+-->
+<head>
+<title>Mezzanine - The Best Django CMS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta property="og:image" content="http://mezzanine.jupo.org/static/img/mezzanine-logo.png">
+<meta name="viewport" content="width=device-width">
+<meta name="description" content="An open source content management platform built using the Django framework.">
+{% compress css %}
+<style>@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold);</style>
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.responsive.css">
+<link rel="stylesheet" href="{{ STATIC_URL }}css/project.css">
+{% endcompress %}
+{% compress js %}
+<script src="{{ STATIC_URL }}js/jquery.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+<script src="{{ STATIC_URL }}js/project.js"></script>
+{% endcompress %}
+{% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+{% block topbar %}
+<div class="topbar fill"></div>
+{% endblock %}
+
+{% block content %}{% endblock %}
+
+<p class="credits">
+    Copyright 2009 - {% now "Y" %} <a href="http://twitter.com/stephen_mcd">Stephen McDonald</a>
+    and many <a data-toggle="modal" class="contributor-link" href="#contributors">Awesome Contributors&trade;</a>
+    <span class="sep">|</span>
+    Design by <a href="http://wearetopsecret.com">Super Top Secret</a>
+    <span class="sep">|</span>
+    UX by <a href="http://tommywolber.com">Tom Wolber</a>
+    <span class="sep">|</span>
+    Icons by <a href="http://glyphicons.com">Glyphicons</a>
+    <br>
+    <a href="/"><img src="{{ STATIC_URL }}img/mezzanine-logo.png" style="height:54px;"></a>
+    <a href="http://www.djangoproject.com"><img src="{{ STATIC_URL }}img/djangopowered126x54_grey.gif" alt="Powered by Django." title="Powered by Django." /></a>
+    <a href="http://python.org"><img src="{{ STATIC_URL }}img/python-powered-w-140x56.png" alt="Powered by Python." title="Powered by Python."></a>
+    <a href="http://www.postgresql.org"><img src="{{ STATIC_URL }}img/postgres.gif" alt="Powered by PostgreSQL." title="Powered by PostgreSQL."></a>
+
+</p>
+
+<div class="modal" id="contributors">
+<div class="modal-header fill">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Credits</h3>
+</div>
+<div class="modal-body">
+<ul class="clearfix">
+    {% for author in authors %}
+    <li>{{ author }}</li>
+    {% endfor %}
+</div>
+</div>
+
+
+</body>
+</html>

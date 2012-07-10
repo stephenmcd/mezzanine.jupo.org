@@ -1,40 +1,7 @@
-<!DOCTYPE html>
-{% load compress twitter_tags demo_tags %}
-<html>
-<!--
-                                                 .__
-  _____    ____  _____________________     ____  |__|  ____    ____
- /     \ _/ __ \ \___   /\___   /\__  \   /    \ |  | /    \ _/ __ \
-|  Y Y  \\  ___/  /    /  /    /  / __ \_|   |  \|  ||   |  \\  ___/
-|__|_|  / \___  >/_____ \/_____ \(____  /|___|  /|__||___|  / \___  >
-      \/      \/       \/      \/     \/      \/          \/      \/
+{% extends "project_base.html" %}
+{% load twitter_tags demo_tags %}
 
--->
-<head>
-<title>Mezzanine - The Best Django CMS</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta property="og:image" content="http://mezzanine.jupo.org/static/img/mezzanine-logo.png">
-<meta name="viewport" content="width=device-width">
-<meta name="description" content="An open source content management platform built using the Django framework.">
-{% compress css %}
-<style>@import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:bold);</style>
-<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.responsive.css">
-<link rel="stylesheet" href="{{ STATIC_URL }}css/homepage.css">
-{% endcompress %}
-{% compress js %}
-<script src="{{ STATIC_URL }}js/jquery.js"></script>
-<script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
-<script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
-<script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
-<script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
-<script src="{{ STATIC_URL }}js/homepage.js"></script>
-{% endcompress %}
-{% block extra_head %}{% endblock %}
-</head>
-
-<body>
-<div class="topbar fill"></div>
+{% block content %}
 <div class="container">
 
     <header class="row">
@@ -78,29 +45,40 @@
         <h3 id="overview">Overview</h3>
         {{ overview|safe }}
 
-        <h3 id="using">Sites</h3>
+        <h3 id="using">Featured Sites</h3>
         <div class="carousel fill" id="sites">
             <div class="carousel-inner">
                 <div class="item active">
-                {% for site in sites %}
+                {% for site in featured_sites %}
                     {% if forloop.counter0 > 0 and forloop.counter0|divisibleby:3 %}
                     </div><div class="item">
                     {% endif %}
-                    <a href="{{ site.0 }}"><img alt="{{ site.1 }}" src="{{ STATIC_URL }}img/sites/{{ site.1|slugify }}-thumb.png"></a>
+                    <a href="{{ site.0 }}"><img alt="{{ site.1 }}" src="{{ STATIC_URL }}img/sites/{{ site.1|slugify }}-homepage.jpg"></a>
                 {% endfor %}
                 </div>
             </div>
             <a class="carousel-control left" href="#sites" data-slide="prev">&lsaquo;</a>
             <a class="carousel-control right" href="#sites" data-slide="next">&rsaquo;</a>
+            <a class="all" href="/sites/">View all</a>
         </div>
 
         <div class="row">
-        <div class="span9"><h3 id="features">Features</h3></div>
-        <ul class="unstyled row features">
-            {% for feature in features %}
-            <li class="span{% if forloop.counter0|divisibleby:2 %}5{% else %}4{% endif %}">{{ feature|safe }}</li>
-            {% endfor %}
-        </ul>
+            <div class="span4" id="features-users">
+                <h3>Users love</h3>
+                <ul class="unstyled row features">
+                    {% for feature in features_users %}
+                    <li>{{ feature|safe }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="span4" id="features-devs">
+                <h3>Developers love</h3>
+                <ul class="unstyled row features">
+                    {% for feature in features_devs %}
+                    <li>{{ feature|safe }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
 
         </div>
@@ -118,8 +96,8 @@
                 </ul>
             </div>
             <h3>Quick Start</h3>
-<pre><em># Install from pypi</em>
-$ pip install -U mezzanine
+<pre><em># Install from PyPI</em>
+$ pip install mezzanine
 
 <em># Create a project</em>
 $ mezzanine-project myproject
@@ -141,6 +119,8 @@ $ python manage.py runserver</pre>
                     <img src="{{ STATIC_URL }}img/glyphicons_309_comments.png">IRC</a></li>
                 <li><a href="https://github.com/stephenmcd/mezzanine/issues">
                     <img src="{{ STATIC_URL }}img/glyphicons_341_github.png">Issue tracker</a></li>
+                <li><a href="/sites/">
+                    <img src="{{ STATIC_URL }}img/glyphicons_012_heart.png">Sites Gallery</a></li>
             </ul>
         </div>
 
@@ -181,39 +161,8 @@ $ python manage.py runserver</pre>
 </div>
 </footer>
 
-<p class="credits">
-    Copyright 2009 - {% now "Y" %} <a href="http://twitter.com/stephen_mcd">Stephen McDonald</a>
-    and many <a data-toggle="modal" class="contributor-link" href="#contributors">Awesome Contributors&trade;</a>
-    <span class="sep">|</span>
-    Design by <a href="http://wearetopsecret.com">Super Top Secret</a>
-    <span class="sep">|</span>
-    UX by <a href="http://tommywolber.com">Tom Wolber</a>
-    <span class="sep">|</span>
-    Icons by <a href="http://glyphicons.com">Glyphicons</a>
-    <br>
-    <a href="/"><img src="{{ STATIC_URL }}img/mezzanine-logo.png" style="height:54px;"></a>
-    <a href="http://www.djangoproject.com"><img src="{{ STATIC_URL }}img/djangopowered126x54_grey.gif" alt="Powered by Django." title="Powered by Django." /></a>
-    <a href="http://python.org"><img src="{{ STATIC_URL }}img/python-powered-w-140x56.png" alt="Powered by Python." title="Powered by Python."></a>
-    <a href="http://www.postgresql.org"><img src="{{ STATIC_URL }}img/postgres.gif" alt="Powered by PostgreSQL." title="Powered by PostgreSQL."></a>
-
-</p>
-
-<div class="modal" id="contributors">
-<div class="modal-header fill">
-    <a class="close" data-dismiss="modal">×</a>
-    <h3>Credits</h3>
-</div>
-<div class="modal-body">
-<ul class="clearfix">
-    {% for author in authors %}
-    <li>{{ author }}</li>
-    {% endfor %}
-</div>
-</div>
-
 <a href="http://github.com/stephenmcd/mezzanine">
     <img class="fork" src="{{ STATIC_URL }}img/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
 </a>
 
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "project_base.html" %}
+
+{% block topbar %}
+<div class="topbar fill topbar-alt">
+<div class="container">
+    <a href="/"><img src="{{ STATIC_URL }}img/mezzanine-logo-small.png"></a>
+    <h3 style="">Powered by Mezzanine</h3>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+
+<section class="row">
+    <div class="span12">
+
+    </div>
+<div class="span9">
+    <p>The following sites are proudly powered by Mezzanine. From design agencies and web applications, to personal blogs and corporate intranets, Mezzanine has successfully powered a broad range of websites across a variety of industries.</p>
+</div>
+</section>
+
+<div class="row"><div class="span12 fill hr"></div></div>
+
+<section class="row">
+<div class="span12">
+    <ul class="thumbnails">
+        {% for site in all_sites %}
+        <li class="span3">
+            <a class="thumbnail" title="{{ site.1 }}" href="{{ site.0 }}"><img alt="{{ site.1 }}" style="width:100%;" src="{{ STATIC_URL }}img/sites/{{ site.1|slugify }}-gallery.jpg">
+            <div class="caption"><h6 style="text-align:center;">{{ site.1|safe }}</h6></div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+</section>
+
+<div class="row"><div class="span12 fill hr"></div></div>
+
+</div>
+
+{% endblock %}
