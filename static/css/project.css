@@ -97,6 +97,7 @@ pre em {color:#555;}
 .carousel .all {color:#999; font-style:italic; line-height:30px;}
 
 /* All sites gallery */
+.all-sites .fill {border-radius:0; text-align:center; overflow:hidden; height:18px;}
 @media (max-width:480px) {
   .all-sites .container img {margin-left:10px;}
   .all-sites h3 {font-size:16px;}

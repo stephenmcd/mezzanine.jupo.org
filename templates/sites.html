@@ -28,8 +28,8 @@
     <ul class="thumbnails all-sites">
         {% for site in all_sites %}
         <li class="span3">
-            <a class="thumbnail" title="{{ site.1 }}" href="{{ site.0 }}"><img alt="{{ site.1 }}" style="width:100%;" src="{{ STATIC_URL }}img/sites/{{ site.1|slugify }}-gallery.jpg">
-            <div class="caption"><h6 style="text-align:center;">{{ site.1|safe }}</h6></div>
+            <a class="thumbnail" title="{{ site.1 }}" href="{{ site.0 }}"><img alt="{{ site.1 }}" src="{{ STATIC_URL }}img/sites/{{ site.1|slugify }}-gallery.jpg">
+            <div class="caption fill"><h6>{{ site.1|safe }}</h6></div>
             </a>
         </li>
         {% endfor %}
