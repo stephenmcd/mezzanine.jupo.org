@@ -28,7 +28,7 @@ for section in ("Sites Using Mezzanine", "Quotes", "Features"):
                   .split("<li>", 1)[1].split("</li>\n</ul>")[0] \
                   .split("</li>\n<li>")
     project_context[section.split()[0].lower()] = items
-open("readme.html", "w").write(README)
+
 # Features are already ordered by user/developer focus - split them.
 i = project_context["features"].index("Sharing via Facebook or Twitter") + 1
 project_context["features_users"] = project_context["features"][:i]
