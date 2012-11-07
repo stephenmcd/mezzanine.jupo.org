@@ -82,10 +82,10 @@ pre em {color:#555;}
 
 /* Donate */
 .donate {text-align:center; margin-bottom:20px;}
-.donate p {text-align:left; padding:5px; margin-right:0; font-style:italic;}
+.donate p {text-align:left; padding:5px; margin-right:0; margin-bottom:10px; font-style:italic;}
 .donate iframe {margin:20px 20px 0 -10px;}
 .donate form {display:inline;}
-.donate input {margin-top:-50px;}
+.donate input {margin-top:10px;}
 
 /* Sites carousel */
 #using {margin:40px 0 -10px 0;}
