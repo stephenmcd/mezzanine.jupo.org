@@ -17,7 +17,7 @@ urlpatterns = patterns("",
         "template": "sites.html",
         "extra_context": project_context
     }, name="sites"),
-    #("^irc/", include("gnotty.urls")),
+    ("^irc/", include("gnotty.urls")),
     ("^shop/", include("cartridge.shop.urls")),
     url("^account/orders/$", "cartridge.shop.views.order_history",
         name="shop_order_history"),

@@ -91,7 +91,7 @@ STATICFILES_FINDERS = (
 ################
 
 INSTALLED_APPS = (
-    #"gnotty",
+    "gnotty",
     "demo",
     "compressor",
     "django.contrib.admin",
@@ -190,8 +190,9 @@ FABRIC = {
     "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
 }
 
+GNOTTY_HTTP_PORT = 8081
 GNOTTY_IRC_CHANNEL = "#mezzanine"
-GNOTTY_BOT_NICKNAME = "mezza9"
+GNOTTY_BOT_NICKNAME = "mezzanotty"
 GNOTTY_BOT_CLASS = "gnotty.bots.Voltron"
 
 # Local settings.
