@@ -1,5 +1,6 @@
 -e git://github.com/stephenmcd/mezzanine.git#egg=mezzanine
 -e git://github.com/stephenmcd/cartridge.git#egg=cartridge
+-e git://github.com/stephenmcd/gnotty.git#egg=gnotty
 docutils
 feedparser
 python-dateutil
