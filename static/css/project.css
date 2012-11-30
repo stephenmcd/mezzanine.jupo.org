@@ -9,6 +9,7 @@ a {color:#197499;}
 .container .fill {border-radius:5px;}
 .topbar {height:40px;}
 .hr {height:3px;}
+.btn-large {padding:12px 8px;}
 
 /* Logo and headings */
 h1, h2, h3 {margin-left:0 !important;}
@@ -21,6 +22,7 @@ h2, h3 {color:rgb(189, 54, 47);}
 h2, h3 {font-size:22px; line-height:24px;}
 h2 {padding:50px 100px 10px 0;}
 h3 {margin-bottom:20px;}
+h6 {color:#999; text-transform:uppercase; margin:0;}
 .fork {position: absolute; top: 0; right: 0; border: 0;}
 
 /* Header for sub-sections (sites, IRC) */
@@ -47,6 +49,7 @@ h3 {margin-bottom:20px;}
 
 /* Right hand col */
 .right p, .right pre {margin:20px 15px;}
+.right pre {font-size:12px;}
 .right h3 {color:#444; text-align:center;}
 .right-fill {padding:10px 0;}
 
