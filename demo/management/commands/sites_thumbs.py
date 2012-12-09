@@ -1,10 +1,11 @@
 
 import os
+from optparse import make_option
 
 from PIL import Image
 
 from django.conf import settings
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import BaseCommand
 from django.template.defaultfilters import slugify
 
 
@@ -13,13 +14,16 @@ SIZES = {
     "gallery": (260, 195),
 }
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     """
     Generates thumbnails for the Mezzanine project sites, for each
     site powered by Mezzanine, as listed in Mezzanine's README.
     """
+    option_list = BaseCommand.option_list + (make_option(
+        "--delay", dest="delay",
+        help="Seconds to wait for site to load before taking screenshot"),)
 
-    def handle_noargs(self, **options):
+    def handle(self, **options):
         from demo import project_context
         script = os.path.join(settings.PROJECT_ROOT, "bin", "webkit2png.py")
         thumb_dir = os.path.join(settings.STATIC_ROOT, "img", "sites")
@@ -27,8 +31,13 @@ class Command(NoArgsCommand):
             title = slugify(title)
             full_path = os.path.join(thumb_dir, title + "-full.jpg")
             if not os.path.exists(full_path):
-                args = (script, thumb_dir, title, url)
-                os.system("python %s -W 1280 -H 960 -F -D %s -o %s %s" % args)
+                if options["delay"]:
+                    delay = "--delay=%s" % options["delay"]
+                else:
+                    delay = ""
+                args = (script, delay, thumb_dir, title, url)
+                cmd = "python %s %s -W 1280 -H 960 -F -D %s -o %s %s"
+                os.system(cmd % args)
                 screen_path = full_path.replace(".jpg", ".png")
                 Image.open(screen_path).save(full_path, quality=60)
                 os.remove(screen_path)
