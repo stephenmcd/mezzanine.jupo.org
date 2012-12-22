@@ -1,7 +1,7 @@
 
 /* General */
 body {background:#fff;}
-p, li, .mentions {color:#777; line-height:19px;}
+p, li, .mentions {color:#777; line-height:150%;}
 p {margin:20px 20px 0 0;}
 a {color:#197499;}
 .row {padding:30px 0 15px 0;}
