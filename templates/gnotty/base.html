@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}css/project.css">
 <link rel="stylesheet" href="{{ STATIC_URL }}css/gnotty.css">
 <style>
-body {margin-bottom:40px;}
+body {margin-bottom:60px;}
 </style>
 {% endcompress %}
 <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
@@ -20,6 +20,7 @@ body {margin-bottom:40px;}
 <script src="{{ STATIC_URL }}js/socket.io.min.js"></script>
 <script src="{{ STATIC_URL }}js/jquery.tmpl.min.js"></script>
 <script src="{{ STATIC_URL }}js/urlize.js"></script>
+<script src="{{ STATIC_URL }}js/show-joins-leaves.js"></script>
 <script src="{{ STATIC_URL }}js/gnotty.js"></script>
 <script src="{{ STATIC_URL }}js/project.js"></script>
 <!--[if lt IE 9]>
@@ -35,7 +36,13 @@ body {margin-bottom:40px;}
 <div class="container">
     <a href="/"><img class="logo" src="{{ STATIC_URL }}img/mezzanine-logo-small.png"></a>
     <h3 style="">IRC.FREENODE.NET</h3>
-    <div class="gnotty-nav">{% gnotty_nav %}</div>
+    <div class="gnotty-nav">
+        {% gnotty_nav %}
+        <form id="joins-leaves" class="pull-right" action="#joins-leaves">
+            <input type="checkbox" id="show-joins-leaves">
+            <label for="show-joins-leaves">Show joins/leaves</label>
+        </form>
+    </div>
 </div>
 </div>
 

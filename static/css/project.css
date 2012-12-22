@@ -145,6 +145,9 @@ footer .container {padding:40px 20px;}
 .table-striped h2 {padding:0;}
 .table-striped h2 a, .calendar a {color:rgb(189, 54, 47);}
 .table-striped .btn-primary {text-transform:none; text-decoration:none;}
+#show-joins-leaves {margin-right:5px;}
+.calendar {margin-bottom:0 !important;}
+.pager-archive-empty {margin-top:-50px !important;}
 
 /* Appsembler */
 .appsembler .signup {margin-top:30px;}
