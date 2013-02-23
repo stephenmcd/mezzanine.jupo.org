@@ -194,6 +194,7 @@ GNOTTY_HTTP_HOST = "0.0.0.0"
 GNOTTY_HTTP_PORT = 8081
 GNOTTY_IRC_CHANNEL = "#mezzanine"
 GNOTTY_BOT_NICKNAME = "mezzanotty"
+GNOTTY_BOT_CLASS = "demo.bot.MezzanineBot"
 
 # Local settings.
 try:
