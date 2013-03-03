@@ -56,7 +56,7 @@ h6 {color:#999; text-transform:uppercase; margin:0;}
 /* Right col drop-down buttons */
 .btn, h1, h2, h3 {text-transform:uppercase;}
 .btn-group {margin:5px 30px 15px 10px;}
-.btn-danger {background:rgb(189, 54, 47); font-weight:bold;}
+.btn-danger {background:rgb(189, 54, 47); font-weight:bold; font-size:16px !important;}
 .btn-danger img {vertical-align:middle; margin:-6px 3px 0 0; opacity:.6;}
 .btn-danger:hover img, .open img {opacity:.9;}
 .btn-group ul {width:248px;}
@@ -93,7 +93,7 @@ pre em {color:#555;}
 /* Sites carousel */
 #using {margin:40px 0 -10px 0;}
 #sites {text-align:center; margin:30px 20px 20px 0; padding:10px 0;}
-#sites img {max-width:24%; margin:15px; box-shadow:0 0 10px #666; border-radius:3px;}
+#sites img {max-width:24%; margin:15px; box-shadow:0 0 10px #666; border-radius:3px; display:inline;}
 .carousel-control {margin-top:0; background:#197499;}
 @media (max-width:480px) {
   #sites img {max-width:20%;}
