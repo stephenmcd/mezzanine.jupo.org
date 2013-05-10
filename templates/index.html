@@ -1,5 +1,5 @@
 {% extends "project_base.html" %}
-{% load twitter_tags demo_tags %}
+{% load twitter_tags demo_tags future %}
 
 {% block content %}
 <div class="container">
@@ -117,7 +117,7 @@ $ python manage.py runserver</pre>
                     <img src="{{ STATIC_URL }}img/glyphicons_194_circle_question_mark.png">FAQs</a></li>
                 <li><a href="http://groups.google.com/group/mezzanine-users">
                     <img src="{{ STATIC_URL }}img/glyphicons_010_envelope.png">Mailing list</a></li>
-                <li><a href="{% url gnotty_chat %}">
+                <li><a href="{% url "gnotty_chat" %}">
                     <img src="{{ STATIC_URL }}img/glyphicons_309_comments.png">IRC</a></li>
                 <li><a href="https://github.com/stephenmcd/mezzanine/issues">
                     <img src="{{ STATIC_URL }}img/glyphicons_341_github.png">Issue tracker</a></li>

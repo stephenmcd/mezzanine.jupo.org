@@ -1,12 +1,14 @@
 
 from django.conf.urls.defaults import *
-from django.views.generic.simple import direct_to_template
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 
 from mezzanine.project_template.urls import urlpatterns
 
 from demo import project_context
 
+
+def direct_to_template(request, template, extra_context=None):
+    return render(request, template, extra_context)
 
 urlpatterns = patterns("",
     url("^$", direct_to_template, {
