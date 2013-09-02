@@ -5,3 +5,9 @@ docutils
 feedparser
 python-dateutil
 slimmer
+django_compressor
+
+# NOTES: on ubuntu, needs:
+# gcc
+# build-essential
+# gevent or python-dev

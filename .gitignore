@@ -1,0 +1,11 @@
+*.pyc
+*.pyo
+*.db
+.DS_Store
+.coverage
+local_settings.py
+build/*
+dist/*
+static/media/*
+mezzdemo.sqlite
+src/*

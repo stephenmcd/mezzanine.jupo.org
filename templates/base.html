@@ -20,8 +20,8 @@
 <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico">
 
 {% ifinstalled mezzanine.blog %}
-<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url blog_post_feed "rss" %}">
-<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url blog_post_feed "atom" %}">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="{% url "blog_post_feed" "rss" %}">
+<link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
 {% endifinstalled %}
 
 {% nevercache %}
@@ -179,7 +179,7 @@ $(function() {
     Themes by <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a href="http://bootswatch.com">Bootswatch</a>
     {% ifinstalled mezzanine.mobile %}
     <span class="separator">|</span>
-    <a href="{% url set_device "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
+    <a href="{% url "set_device" "mobile" %}?next={{ request.path }}">{% trans "View Mobile Site" %}</a>
     {% endifinstalled %}
 </p>
 </div>
