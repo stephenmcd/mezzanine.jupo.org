@@ -3,17 +3,12 @@ AUTH_PROFILE_MODULE = "demo.Profile"
 USE_TZ = True
 AUTHENTICATION_BACKENDS = ("mezzanine.core.auth_backends.MezzanineBackend",)
 
-ALLOWED_HOSTS = ['127.0.0.1']
 
 # Main Django settings.
-#DEBUG = False
-#DEV_SERVER = False
-DEBUG = True
-DEV_SERVER = True
-
-MANAGERS = ADMINS = ('joe@eracks.com')
-#TIME_ZONE = "Australia/Melbourne"
-TIME_ZONE = "America/Los_Angeles"
+DEBUG = False
+DEV_SERVER = False
+MANAGERS = ADMINS = ()
+TIME_ZONE = "Australia/Melbourne"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 LANGUAGE_CODE = "en"
 SITE_ID = 1
@@ -24,9 +19,9 @@ INTERNAL_IPS = ("127.0.0.1",)
 # Databases.
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
+        "ENGINE": "",
         "HOST": "",
-        "NAME": "mezzdemo.sqlite",
+        "NAME": "",
         "PASSWORD": "",
         "PORT": "",
         "USER": "",
@@ -205,7 +200,6 @@ GNOTTY_BOT_CLASS = "demo.bot.MezzanineBot"
 try:
     from local_settings import *
 except ImportError:
-    #print 'No local settings.'
     pass
 
 # Dynamic settings.
