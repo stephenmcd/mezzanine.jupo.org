@@ -117,8 +117,12 @@ pre em {color:#555;}
   #features-devs {margin-left:90px;}
 }
 
+/* Blogs */
+#blogs {margin-bottom:0;}
+.blog .btn {margin-top:10px;}
+
 /* Footer */
-footer {box-shadow:inset 0 0 30px rgba(39, 26, 22, .1); margin-top:30px;}
+footer {box-shadow:inset 0 0 30px rgba(39, 26, 22, .1); margin-top:40px;}
 footer .container {padding:40px 20px;}
 .mentions {padding-top:0; padding-bottom:0; margin-top:0; margin-bottom:0;}
 .mentions .span4 {margin-bottom:15px;}
