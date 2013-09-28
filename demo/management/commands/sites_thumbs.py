@@ -1,6 +1,7 @@
 
 import os
 from optparse import make_option
+from urllib import urlretrieve
 
 from PIL import Image
 
@@ -23,22 +24,38 @@ class Command(BaseCommand):
         "--delay", dest="delay",
         help="Seconds to wait for site to load before taking screenshot"),)
 
+    def create_webkit(self, url, full_path, thumb_dir, title, delay):
+        if delay:
+            delay = "--delay=%s" % delay
+        else:
+            delay = ""
+        script = os.path.join(settings.PROJECT_ROOT, "bin", "webkit2png.py")
+        os.system("python %s %s -W 1280 -H 960 -F -D %s -o %s %s" % (
+            script, delay, thumb_dir, title, url))
+        return full_path.replace(".jpg", ".png")
+
+    def create_snapito(self, url, delay):
+        if delay:
+            delay = "&delay=%s" % delay
+        else:
+            delay = ""
+        api_key = settings.SNAPITO_KEY
+        api_url = "http://api.snapito.com/web/%s/full?freshness=1&url=%s%s" % (
+            api_key, url, delay)
+        return urlretrieve(api_url)[0]
+
     def handle(self, **options):
         from demo import project_context
-        script = os.path.join(settings.PROJECT_ROOT, "bin", "webkit2png.py")
         thumb_dir = os.path.join(settings.STATIC_ROOT, "img", "sites")
         for url, title in project_context["all_sites"]:
             title = slugify(title)
             full_path = os.path.join(thumb_dir, title + "-full.jpg")
             if not os.path.exists(full_path):
-                if options["delay"]:
-                    delay = "--delay=%s" % options["delay"]
+                if hasattr(settings, "SNAPITO_KEY"):
+                    screen_path = self.create_snapito(url, options["delay"])
                 else:
-                    delay = ""
-                args = (script, delay, thumb_dir, title, url)
-                cmd = "python %s %s -W 1280 -H 960 -F -D %s -o %s %s"
-                os.system(cmd % args)
-                screen_path = full_path.replace(".jpg", ".png")
+                    screen_path = self.create_webkit(url, full_path, thumb_dir,
+                                                     title, options["delay"])
                 Image.open(screen_path).save(full_path, quality=60)
                 os.remove(screen_path)
             for name, size in SIZES.items():
