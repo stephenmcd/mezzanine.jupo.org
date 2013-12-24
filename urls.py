@@ -1,5 +1,5 @@
 
-from django.conf.urls.defaults import *
+from django.conf.urls import patterns, url, include
 from django.shortcuts import redirect, render
 
 from mezzanine.project_template.urls import urlpatterns
