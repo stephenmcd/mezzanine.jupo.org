@@ -23,17 +23,15 @@
 <link rel="alternate" type="application/atom+xml" title="Atom" href="{% url "blog_post_feed" "atom" %}">
 {% endifinstalled %}
 
-{% nevercache %}
-<!--<link rel="stylesheet" href="{{ STATIC_URL }}css/{{ request.COOKIES.theme|default:"bootstrap" }}.css">-->
-{% endnevercache %}
-
 {% compress css %}
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
-<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
+
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/rtl.css" %}">
 {% endif %}
+
 {% ifinstalled cartridge.shop %}
 <link rel="stylesheet" href="{% static "css/cartridge.css" %}">
 {% if LANGUAGE_BIDI %}
@@ -42,20 +40,8 @@
 {% endifinstalled %}
 
 <style>
-
-.themes-group {display:none;}
-.navbar .nav {overflow:hidden; max-width:460px;}
-
-.themes-group {margin-top:10px;}
-.spruce .navbar-text {margin-top:11px;}
-.readable .navbar-search .btn {font-size:12px; font-weight:bold;}
-.superhero .navbar .nav {max-height:70px;}
-.superhero .navbar-text {margin-top:22px;}
-.amelia .navbar .nav {max-height:50px;}
-.amelia .navbar-search .btn {padding:3px;}
-
+.navbar .nav {overflow:hidden; max-width:460px; max-height:50px;}
 </style>
-
 {% block extra_css %}{% endblock %}
 {% endcompress %}
 
@@ -120,26 +106,6 @@ $(function() {
 </div>
 {% endif %}
 {% endnevercache %}
-
-<div class="btn-group themes-group" style="float:right;">
-  <a class="btn btn-large btn-success dropdown-toggle" data-toggle="dropdown" href="#">
-    Switch Theme
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu themes">
-    <li><a href="#">Amelia</a></li>
-    <li><a href="#">Bootstrap</a></li>
-    <li><a href="#">Cerulean</a></li>
-    <li><a href="#">Cyborg</a></li>
-    <li><a href="#">Journal</a></li>
-    <li><a href="#">Readable</a></li>
-    <li><a href="#">Slate</a></li>
-    <li><a href="#">Superhero</a></li>
-    <li><a href="#">Spacelab</a></li>
-    <li><a href="#">Spruce</a></li>
-    <li><a href="#">United</a></li>
-  </ul>
-</div>
 
 <h1>{% block title %}{% endblock %}</h1>
 
