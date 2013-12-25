@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="{{ STATIC_URL }}css/gnotty.css">
 <style>
 body {margin-bottom:60px;}
+.btn-sm {padding:0 10px;}
+.navbar-search {margin-top:8px;}
 </style>
 {% endcompress %}
 <script src="{{ STATIC_URL }}js/jquery.min.js"></script>
@@ -56,7 +58,7 @@ body {margin-bottom:60px;}
 <div class="span9 control-group">
 <div class="controls">
     <input type="text" class="input-xlarge" id="input" placeholder="nickname" name="nickname" autocomplete="off" maxlength="{{ MAX_MESSAGE_LENGTH }}">
-    <input type="submit" class="btn btn-danger" id="submit" value="Join">
+    <input type="submit" class="btn btn-sm btn-danger" id="submit" value="Join">
     <input type="button" class="btn hidden" id="leave" value="Leave">
 </div>
 </div>
