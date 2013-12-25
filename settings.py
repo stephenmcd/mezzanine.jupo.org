@@ -12,7 +12,7 @@ TIME_ZONE = "Australia/Melbourne"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 LANGUAGE_CODE = "en"
 SITE_ID = 1
-USE_I18N = False
+USE_I18N = True
 SECRET_KEY = "dgfdsg98sdgg54545B$Wv#$#4#$ZDvdfvbfvv"
 INTERNAL_IPS = ("127.0.0.1",)
 
@@ -136,6 +136,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -174,7 +175,10 @@ OPTIONAL_APPS = (
 # Mezzanine settings.
 USE_SOUTH = True
 
-from django.utils.translation import ugettext_lazy as _
+LANGUAGE_CODE = "en"
+
+_ = lambda s: s
+
 ADMIN_MENU_ORDER = (
     (_("Content"), ("pages.Page", "blog.BlogPost", "generic.ThreadedComment",
         (_("Media Library"), "fb_browse"),)),
