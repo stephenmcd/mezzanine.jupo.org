@@ -35,13 +35,14 @@ class Command(BaseCommand):
         return full_path.replace(".jpg", ".png")
 
     def create_snapito(self, url, delay):
-        if delay:
-            delay = "&delay=%s" % delay
-        else:
-            delay = ""
-        api_key = settings.SNAPITO_KEY
-        api_url = "http://api.snapito.com/web/%s/full?freshness=1&url=%s%s" % (
-            api_key, url, delay)
+        # if delay:
+        #     delay = "&delay=%s" % delay
+        # else:
+        #     delay = ""
+        # api_key = settings.SNAPITO_KEY
+        # api_url = "http://api.snapito.com/web/%s/full?freshness=1&url=%s%s" % (
+        #     api_key, url, delay)
+        api_url = "http://api.snapito.com/free/full/%s" % url
         return urlretrieve(api_url)[0]
 
     def handle(self, **options):
