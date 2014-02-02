@@ -1,13 +1,16 @@
 -e git://github.com/stephenmcd/mezzanine.git#egg=mezzanine
 -e git://github.com/stephenmcd/cartridge.git#egg=cartridge
 -e git://github.com/stephenmcd/gnotty.git#egg=gnotty
-docutils
-feedparser
-python-dateutil
-slimmer
-django_compressor
+
+docutils==0.9
+feedparser==5.1.2
+python-dateutil==2.1
+slimmer==0.1.30
+django-compressor==1.1.2
 
 # NOTES: on ubuntu, needs:
 # gcc
 # build-essential
 # gevent or python-dev
+
+
