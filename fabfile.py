@@ -14,12 +14,13 @@ def install():
         if not exists("docs"):
             run("virtualenv docs --distribute")
         with prefix("source %s/docs/bin/activate" % mezzfab.env.venv_home):
-            sudo("pip install sphinx cartridge fabric")
-        for repo in doc_repos:
-            repo_path = "docs/%s" % repo
-            if not exists(repo_path):
-                with cd("docs"):
-                    run("hg clone http://bitbucket.org/stephenmcd/" + repo)
+            for repo in doc_repos:
+                repo_path = "docs/%s" % repo
+                if not exists(repo_path):
+                    with cd("docs"):
+                        run("hg clone http://bitbucket.org/stephenmcd/" + repo)
+                    with cd(repo):
+                        run("python setup.py develop")
 
 
 @task
