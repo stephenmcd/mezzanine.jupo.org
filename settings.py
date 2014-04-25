@@ -13,6 +13,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 LANGUAGE_CODE = "en"
 SITE_ID = 1
 USE_I18N = True
+USE_L10n = True
 SECRET_KEY = "dgfdsg98sdgg54545B$Wv#$#4#$ZDvdfvbfvv"
 INTERNAL_IPS = ("127.0.0.1",)
 
@@ -128,6 +129,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
     "mezzanine.conf.context_processors.settings",
+    "mezzanine.pages.context_processors.page",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -174,8 +176,6 @@ OPTIONAL_APPS = (
 
 # Mezzanine settings.
 USE_SOUTH = True
-
-LANGUAGE_CODE = "en"
 
 _ = lambda s: s
 
