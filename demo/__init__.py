@@ -46,11 +46,21 @@ for site in sites:
     key = "featured_sites" if site[0].endswith("/") else "all_sites"
     project_context[key].append(site)
 
+# Featured featured sites.
+featured_featured = [
+    "https://mobilepartners.mozilla.org/",
+    "http://www.vetnethq.com/",
+    "http://www.mandriva.com/",
+]
+project_context["featured_sites"] = sorted(project_context["featured_sites"],
+    key=lambda site: (site[0] not in featured_featured,
+                      project_context["featured_sites"].index(site)))
+
 # Only show sites with thumbnails.
 project_context["all_sites"] = [site for site in
-  (project_context["featured_sites"] + project_context["all_sites"])
-  if os.path.exists(os.path.join(settings.STATIC_ROOT, "img/sites",
-                                 slugify(site[1]) + "-gallery.jpg"))]
+    (project_context["featured_sites"] + project_context["all_sites"])
+    if os.path.exists(os.path.join(settings.STATIC_ROOT, "img/sites",
+                                   slugify(site[1]) + "-gallery.jpg"))]
 
 project_context["overview"] = README.split("Overview</h1>")[1]
 project_context["overview"] = project_context["overview"].split("<p>Visit")[0]
