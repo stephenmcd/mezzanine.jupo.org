@@ -1,6 +1,8 @@
 
 import os.path
 
+from django.conf import settings
+from django.template.defaultfilters import slugify
 from docutils.core import publish_string
 from docutils.writers.html4css1 import Writer,HTMLTranslator
 
@@ -43,8 +45,12 @@ sites = [(s.split("href=\"")[1].split("\"")[0],
 for site in sites:
     key = "featured_sites" if site[0].endswith("/") else "all_sites"
     project_context[key].append(site)
-project_context["all_sites"] = (project_context["featured_sites"] +
-                                project_context["all_sites"])
+
+# Only show sites with thumbnails.
+project_context["all_sites"] = [site for site in
+  (project_context["featured_sites"] + project_context["all_sites"])
+  if os.path.exists(os.path.join(settings.STATIC_ROOT, "img/sites",
+                                 slugify(site[1]) + "-gallery.jpg"))]
 
 project_context["overview"] = README.split("Overview</h1>")[1]
 project_context["overview"] = project_context["overview"].split("<p>Visit")[0]
