@@ -20,12 +20,12 @@
             modified, and redistributed commercially.
         </p>
         <div class="btn-group">
-            <a class="btn btn-large btn-danger dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="btn btn-large btn-danger dropdown-toggle" href="/admin/?mezzanine_login_interface=site&next=/blog/">
                 <img src="{{ STATIC_URL }}img/glyphicons_051_eye_open.png">
-                Try the live Demo <span class="caret"></span>
+                Try the live Demo
             </a>
             <ul class="dropdown-menu">
-                <li><a href="{% if not request.user.is_staff %}/admin/?mezzanine_login_interface=site&next={% endif %}/blog/">Administration</a></li>
+                <li>Administration</a></li>
                 <li><a href="/set_device/default/?next=/blog/">Full site</a></li>
                 <li><a href="/set_device/mobile/?next=/blog/">Mobile site</a></li>
             </ul>

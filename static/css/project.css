@@ -49,7 +49,7 @@ h6 {color:#999; text-transform:uppercase; margin:0;}
 
 /* Right hand col */
 .right p, .right pre {margin:20px 15px;}
-.right pre {font-size:12px;}
+.right pre {font-size:11.5px;}
 .right h3 {color:#444; text-align:center;}
 .right-fill {padding:10px 0;}
 
@@ -61,6 +61,7 @@ h6 {color:#999; text-transform:uppercase; margin:0;}
 .btn-danger:hover img, .open img {opacity:.9;}
 .btn-group ul {width:248px;}
 .dropdown-menu, .dropdown-toggle {width:100%;}
+.dropdown-toggle {padding:12px 12px 12px 11px;}
 
 /* Demo credentials */
 .login {text-align:center; font-size:14px; font-weight:bold; padding:15px 20px 15px 0; margin:0 10px;}

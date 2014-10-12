@@ -7,10 +7,3 @@ feedparser==5.1.2
 python-dateutil==2.1
 slimmer==0.1.30
 django-compressor==1.1.2
-
-# NOTES: on ubuntu, needs:
-# gcc
-# build-essential
-# gevent or python-dev
-
-
