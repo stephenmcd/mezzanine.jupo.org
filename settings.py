@@ -29,6 +29,8 @@ DATABASES = {
     }
 }
 
+SHOP_CURRENCY_LOCALE = "en_US.UTF-8"
+
 import os
 
 # Full filesystem path to the project.
