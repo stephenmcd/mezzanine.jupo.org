@@ -32,7 +32,7 @@ for section in ("Sites Using Mezzanine", "Quotes", "Features"):
     project_context[section.split()[0].lower()] = items
 
 # Features are already ordered by user/developer focus - split them.
-i = project_context["features"].index("Sharing via Facebook or Twitter") + 1
+i = project_context["features"].index("Sharing via Facebook or Twitter") + 2
 project_context["features_users"] = project_context["features"][:i]
 project_context["features_devs"] = project_context["features"][i:]
 
@@ -51,6 +51,7 @@ featured_featured = [
     "https://mobilepartners.mozilla.org/",
     "http://www.vetnethq.com/",
     "http://www.mandriva.com/",
+    "http://www.oxfamamerica.org/"
 ]
 project_context["featured_sites"] = sorted(project_context["featured_sites"],
     key=lambda site: (site[0] not in featured_featured,
