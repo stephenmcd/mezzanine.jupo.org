@@ -6,4 +6,4 @@ docutils==0.9
 feedparser==5.1.2
 python-dateutil==2.1
 slimmer==0.1.30
-django-compressor==1.1.2
+django-compressor==1.5
