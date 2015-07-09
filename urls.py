@@ -2,7 +2,7 @@
 from django.conf.urls import patterns, url, include
 from django.shortcuts import redirect, render
 
-from mezzanine.project_template.urls import urlpatterns
+from mezzanine.project_template.project_name.urls import urlpatterns
 
 from demo import project_context
 

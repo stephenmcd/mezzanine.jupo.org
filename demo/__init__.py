@@ -40,7 +40,7 @@ project_context["features_devs"] = project_context["features"][i:]
 project_context["featured_sites"] = []
 project_context["all_sites"] = []
 sites = [(s.split("href=\"")[1].split("\"")[0],
-          s.split(">")[1].split("</a")[0])
+          s.split(">")[-3].split("</a")[0])
          for s in reversed(project_context["sites"])]
 for site in sites:
     key = "featured_sites" if site[0].endswith("/") else "all_sites"
@@ -60,8 +60,8 @@ project_context["featured_sites"] = sorted(project_context["featured_sites"],
 # Only show sites with thumbnails.
 project_context["all_sites"] = [site for site in
     (project_context["featured_sites"] + project_context["all_sites"])
-    if os.path.exists(os.path.join(settings.STATIC_ROOT, "img/sites",
-                                   slugify(site[1]) + "-gallery.jpg"))]
+    if settings.DEBUG or os.path.exists(os.path.join(settings.STATIC_ROOT,
+        "img/sites", slugify(site[1]) + "-gallery.jpg"))]
 
 project_context["overview"] = README.split("Overview</h1>")[1]
 project_context["overview"] = project_context["overview"].split("<p>Visit")[0]

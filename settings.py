@@ -94,7 +94,7 @@ STATICFILES_FINDERS = (
 ################
 
 INSTALLED_APPS = (
-    "gnotty",
+    #"gnotty",
     "demo",
     "compressor",
     "django.contrib.admin",
@@ -177,9 +177,8 @@ OPTIONAL_APPS = (
 
 
 # Mezzanine settings.
-USE_SOUTH = True
 
-_ = lambda s: s
+from django.utils.translation import ugettext_lazy as _
 
 ADMIN_MENU_ORDER = (
     (_("Content"), ("pages.Page", "blog.BlogPost", "generic.ThreadedComment",
