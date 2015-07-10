@@ -10,8 +10,7 @@ from django.core.management import call_command
 from django.core.management.base import NoArgsCommand
 
 from mezzanine.blog.models import BlogPost
-from mezzanine.core.management import create_pages, install_optional_data
-from cartridge.shop.management import create_product
+from mezzanine.core.management.commands.createdb import Command as DemoData
 
 
 class Command(NoArgsCommand):
@@ -62,9 +61,13 @@ class Command(NoArgsCommand):
         os.mkdir(uploads)
 
         # Load initial demo data.
-        create_pages(None, models, verbosity=1, interactive=False)
-        create_product(None, models, verbosity=1, interactive=False)
-        install_optional_data(verbosity=1)
+        print("")
+        demo_data = DemoData()
+        demo_data.verbosity = 1
+        demo_data.interactive = 0
+        demo_data.no_data = 0
+        demo_data.create_pages()
+        demo_data.create_shop()
         call_command("import_rss", rss_url="http://blog.jupo.org/atom.xml",
                      mezzanine_user=demo_username, **options)
         mezzanine_posts = Q(title__icontains="mezzanine")
