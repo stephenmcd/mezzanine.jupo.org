@@ -30,11 +30,7 @@ $(function() {
     quotes();
 
     // Sites carousel
-    $('.carousel').mouseenter(function() {
-        $(this).carousel('pause');
-    }).mouseleave(function() {
-        $(this).carousel('next');
-    }).carousel();
+    $('.carousel').carousel().pause();
 
     // Flattr button
     (function() {

@@ -43,6 +43,8 @@ class Command(NoArgsCommand):
             demo_user.is_staff = True
             demo_user.save()
         demo_user.user_permissions.remove()
+        demo_user.first_name = "Demo"
+        demo_user.last_name = "User"
         demo_user.save()
         for model in models:
             ct = ContentType.objects.get_for_model(model)
@@ -65,6 +67,6 @@ class Command(NoArgsCommand):
         install_optional_data(verbosity=1)
         call_command("import_rss", rss_url="http://blog.jupo.org/atom.xml",
                      mezzanine_user=demo_username, **options)
-        mezzanine_posts = Q(keywords_string__contains="mezzanine")
-        cartridge_posts = Q(keywords_string__contains="cartridge")
+        mezzanine_posts = Q(title__icontains="mezzanine")
+        cartridge_posts = Q(title__icontains="cartridge")
         BlogPost.objects.exclude(mezzanine_posts | cartridge_posts).delete()
