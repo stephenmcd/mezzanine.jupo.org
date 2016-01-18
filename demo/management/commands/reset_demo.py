@@ -2,7 +2,8 @@
 import os
 from shutil import rmtree
 
-from django.db.models import get_models, Q
+from django.apps import apps
+from django.db.models import Q
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
@@ -25,8 +26,10 @@ class Command(NoArgsCommand):
         packages = ("mezzanine", "cartridge")
         keep_apps = ("mezzanine.conf", "mezzanine.twitter")
         reset = lambda a: a.split(".")[0] in packages and a not in keep_apps
-        apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS if reset(a)]
-        models = [m for m in get_models() if m._meta.app_label in apps]
+        installled_apps = [a.split(".")[-1] for a in settings.INSTALLED_APPS
+            if reset(a)]
+        models = [m for m in apps.get_models()
+            if m._meta.app_label in installled_apps]
 
         # Delete all demo-editable data.
         for model in models:
@@ -73,3 +76,4 @@ class Command(NoArgsCommand):
         mezzanine_posts = Q(title__icontains="mezzanine")
         cartridge_posts = Q(title__icontains="cartridge")
         BlogPost.objects.exclude(mezzanine_posts | cartridge_posts).delete()
+        BlogPost.objects.filter(keywords__keyword__title="speaking").delete()

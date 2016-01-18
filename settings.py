@@ -12,8 +12,7 @@ TIME_ZONE = "Australia/Melbourne"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 LANGUAGE_CODE = "en"
 SITE_ID = 1
-USE_I18N = True
-USE_L10N = True
+USE_I18N = USE_L10N = True
 SECRET_KEY = "dgfdsg98sdgg54545B$Wv#$#4#$ZDvdfvbfvv"
 INTERNAL_IPS = ("127.0.0.1",)
 
