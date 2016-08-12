@@ -48,8 +48,11 @@ sites = [(s.split("href=\"")[1].split("\"")[0],
           s.split(">")[1].split("</a")[0])
          for s in reversed(project_context["sites"])]
 for site in sites:
-    key = "featured_sites" if site[0].endswith("/") else "all_sites"
-    project_context[key].append(site)
+    # Only show sites with thumbnails.
+    if os.path.exists(os.path.join(settings.STATIC_ROOT,
+            "img/sites", slugify(site[1]) + "-gallery.jpg")):
+        key = "featured_sites" if site[0].endswith("/") else "all_sites"
+        project_context[key].append(site)
 
 # Featured featured sites.
 featured_featured = [
@@ -61,12 +64,8 @@ featured_featured = [
 project_context["featured_sites"] = sorted(project_context["featured_sites"],
     key=lambda site: (site[0] not in featured_featured,
                       project_context["featured_sites"].index(site)))
-
-# Only show sites with thumbnails.
-project_context["all_sites"] = [site for site in
-    (project_context["featured_sites"] + project_context["all_sites"])
-    if settings.DEBUG or os.path.exists(os.path.join(settings.STATIC_ROOT,
-        "img/sites", slugify(site[1]) + "-gallery.jpg"))]
+project_context["all_sites"] = (project_context["featured_sites"] +
+                                project_context["all_sites"])
 
 project_context["overview"] = OVERVIEW.split("Overview</h1>")[1]
 project_context["overview"] = project_context["overview"].split("<p>Visit")[0]
