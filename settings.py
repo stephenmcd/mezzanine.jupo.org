@@ -194,12 +194,6 @@ FABRIC = {
     "REPO_URL": "git://github.com/stephenmcd/mezzanine.jupo.org.git",
 }
 
-GNOTTY_HTTP_HOST = "0.0.0.0"
-GNOTTY_HTTP_PORT = 8081
-GNOTTY_IRC_CHANNEL = "#mezzanine"
-GNOTTY_BOT_NICKNAME = "mezzbott5000"
-GNOTTY_BOT_CLASS = "demo.bot.MezzanineBot"
-
 f = os.path.join(PROJECT_ROOT, "local_settings.py")
 if os.path.exists(f):
     import sys
