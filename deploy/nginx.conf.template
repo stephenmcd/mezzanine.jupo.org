@@ -1,6 +1,6 @@
 
 upstream %(proj_name)s {
-    server 127.0.0.1:%(gunicorn_port)s;
+    server unix:%(proj_path)s/gunicorn.sock fail_timeout=0;
 }
 
 server {

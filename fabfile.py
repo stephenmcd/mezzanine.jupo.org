@@ -1,4 +1,7 @@
 
+from fabric.api import env
+env.proj_app = "project"
+
 from fabric.api import cd, prefix, sudo, run, task
 from fabric.contrib.files import exists
 from mezzanine.project_template import fabfile as mezzfab
@@ -10,23 +13,26 @@ doc_repos = ("mezzanine", "cartridge")
 @task
 def install():
     mezzfab.install()
+    if not exists(mezzfab.env.venv_home):
+        run("mkdir -p %s" % mezzfab.env.venv_home)
     with cd(mezzfab.env.venv_home):
         if not exists("docs"):
             run("virtualenv docs --distribute")
+        run("pip install sphinx")
         with prefix("source %s/docs/bin/activate" % mezzfab.env.venv_home):
             for repo in doc_repos:
                 repo_path = "docs/%s" % repo
                 if not exists(repo_path):
                     with cd("docs"):
                         run("hg clone http://bitbucket.org/stephenmcd/" + repo)
-                    with cd(repo):
-                        run("python setup.py develop")
+                        with cd(repo):
+                            run("python setup.py develop")
 
 
 @task
 def create():
     mezzfab.create()
-    manage("reset_demo")
+    mezzfab.manage("reset_demo")
 
 
 @task

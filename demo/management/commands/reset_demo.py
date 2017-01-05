@@ -1,5 +1,6 @@
 
 import os
+from distutils.dir_util import mkpath
 from shutil import rmtree
 
 from django.apps import apps
@@ -7,19 +8,21 @@ from django.db.models import Q
 from django.conf import settings
 from django.contrib.auth.models import User, Permission
 from django.contrib.contenttypes.models import ContentType
+from django.contrib.sites.models import Site
 from django.core.management import call_command
-from django.core.management.base import NoArgsCommand
+from django.core.management.base import BaseCommand
 
 from mezzanine.blog.models import BlogPost
 from mezzanine.core.management.commands.createdb import Command as DemoData
+from mezzanine.core.models import SitePermission
 
 
-class Command(NoArgsCommand):
+class Command(BaseCommand):
     """
     Resets the Mezzanine models for the Mezzanine demo site.
     """
 
-    def handle_noargs(self, **options):
+    def handle(self, **options):
 
         # Build a list of demo-editable models, which is everything
         # in Cartridge and Mezzanine, apart from mezzanine.twitter
@@ -53,6 +56,10 @@ class Command(NoArgsCommand):
             for permission in Permission.objects.filter(content_type=ct):
                 demo_user.user_permissions.add(permission)
 
+        sp = SitePermission.objects.create(user=demo_user)
+        for site in Site.objects.all():
+            sp.sites.add(site)
+
         # Delete any created user accounts.
         keep_users = Q(is_superuser=True) | Q(username=demo_username)
         User.objects.exclude(keep_users).delete()
@@ -61,7 +68,7 @@ class Command(NoArgsCommand):
         uploads = os.path.join(settings.MEDIA_ROOT, "uploads")
         if os.path.exists(uploads):
             rmtree(uploads)
-        os.mkdir(uploads)
+        mkpath(uploads)
 
         # Load initial demo data.
         print("")

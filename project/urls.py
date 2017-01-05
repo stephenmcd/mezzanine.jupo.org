@@ -1,7 +1,7 @@
 
 from django.conf.urls import url, include
 from django.shortcuts import redirect, render
-
+from cartridge.shop.views import order_history
 from mezzanine.project_template.project_name.urls import urlpatterns
 
 from demo import project_context
@@ -21,6 +21,5 @@ urlpatterns = [
     }, name="sites"),
     #("^irc/", include("gnotty.urls")),
     url("^shop/", include("cartridge.shop.urls")),
-    url("^account/orders/$", "cartridge.shop.views.order_history",
-        name="shop_order_history"),
+    url("^account/orders/$", order_history, name="shop_order_history"),
 ] + urlpatterns
